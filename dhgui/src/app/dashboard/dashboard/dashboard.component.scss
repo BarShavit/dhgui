@@ -1,0 +1,4 @@
+.main-grid {
+    // You need to do it to avoid overflow from the stupid grid
+    height: calc(100vh - 1px);
+}

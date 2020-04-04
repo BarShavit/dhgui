@@ -14,7 +14,11 @@ $dhgui-accent: mat-palette($mat-pink, A200, A100, A400);
 // The warn palette is optional (defaults to red).
 $dhgui-warn: mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
-$dhgui-theme: mat-dark-theme($dhgui-primary, $dhgui-accent, $dhgui-warn);
+$dhgui-theme: mat-light-theme($dhgui-primary, $dhgui-accent, $dhgui-warn);
+$mat-dark-theme-background: ( status-bar: black, app-bar: map_get($mat-grey, 900), background: #303030, hover: rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+card: map_get($mat-grey, 800), dialog: map_get($mat-grey, 800), disabled-button: $white-12-opacity, raised-button: map-get($mat-grey, 800), focused-button: $white-6-opacity, selected-button: map_get($mat-grey, 900), selected-disabled-button: map_get($mat-grey, 800), disabled-button-toggle: map_get($mat-grey, 1000), );
+$mat-dark-theme-foreground: ( base: white, divider: $white-12-opacity, dividers: $white-12-opacity, disabled: rgba(white, 0.3), disabled-button: rgba(white, 0.3), disabled-text: rgba(white, 0.3), hint-text: rgba(white, 0.3), secondary-text: rgba(white, 0.7), icon: white, icons: white, text: white, slider-off: rgba(white, 0.3), slider-off-active: rgba(white, 0.3), );
+$dhgui-theme: map_merge($dhgui-theme, (foreground: $mat-dark-theme-foreground, background: $mat-dark-theme-background, ));
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -30,4 +34,5 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    direction: rtl;
 }
