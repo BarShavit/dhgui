@@ -1,1 +1,24 @@
-<span *ngIf="version!=null">{{version.version}}</span>
+<mat-card class="text-align-center main-card">
+    <mat-card-title>כוכב הסוף</mat-card-title>
+    <app-ship-svg mat-card-image></app-ship-svg>
+    <mat-card-content>
+        <table class="table-design">
+            <tr>
+                <td>
+                    זמן:
+                </td>
+                <td>
+                    {{timeService.getDateString()}}
+                </td>
+            </tr>
+            <tr *ngIf="platform != null">
+                <td>גרסה:</td>
+                <td>{{version.version}}</td>
+            </tr>
+            <tr *ngIf="platform!=null">
+                <td>פלטפורמה:</td>
+                <td>{{platform.name}}</td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>
