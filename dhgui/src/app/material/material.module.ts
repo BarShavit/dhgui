@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs'
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatListModule } from '@angular/material/list';
 
 let modules = [
   MatCardModule,
   MatGridListModule,
   MatTabsModule,
-  MatIconModule
+  MatIconModule,
+  MatListModule
 ];
 
 @NgModule({

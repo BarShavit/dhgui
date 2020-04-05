@@ -28,5 +28,10 @@ export class ConstantsService {
   bombAddress = "/assets";
   getBombLiveliness = this.bombAddress + "/bomb-liveliness.json";
 
+  /* WAN */
+  wanAddress = "/assets";
+  getTology = this.wanAddress + "/wan-topology.json";
+  getTaskForces = this.wanAddress + "/wan-taskforces.json";
+
   constructor() { }
 }

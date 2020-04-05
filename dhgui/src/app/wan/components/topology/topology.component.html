@@ -1,1 +1,7 @@
-<p>topology works!</p>
+<mat-list class="topology-container">
+    <mat-list-item *ngFor="let member of wanService.topology" [class.connected]="member.isConnected" [class.disconnected]="!member.isConnected">
+        <div mat-line>{{member.name}}</div>
+        <mat-icon *ngIf="member.isConnected">bluetooth_connected</mat-icon>
+        <mat-icon *ngIf="!member.isConnected">bluetooth_disabled</mat-icon>
+    </mat-list-item>
+</mat-list>
