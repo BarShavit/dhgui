@@ -23,8 +23,9 @@ $dhgui-theme: map_merge($dhgui-theme, (foreground: $mat-dark-theme-foreground, b
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($dhgui-theme);
-
-/* You can add global styles to this file, and also import other style files */
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 1), 0 1px 3px 0 rgba(0, 0, 0, 1);
+}
 
 html,
 body {
