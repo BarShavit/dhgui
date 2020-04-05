@@ -1,0 +1,5 @@
+<div class="general-liveliness" [class.connected]="systemLiveliness.isAlive" [class.disconnected]="!systemLiveliness.isAlive">
+    <div>{{systemLiveliness.systemName}}</div>
+    <mat-icon *ngIf="systemLiveliness.isAlive">signal_wifi_4_bar</mat-icon>
+    <mat-icon *ngIf="!systemLiveliness.isAlive">signal_wifi_off</mat-icon>
+</div>

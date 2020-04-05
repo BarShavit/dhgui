@@ -1,0 +1,20 @@
+.general-liveliness {
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px;
+    border-radius: 10px;
+    box-shadow: 3px 3px black;
+    opacity: 0.8;
+}
+
+.connected {
+    color: rgb(0, 235, 0);
+    border: 1px rgb(0, 235, 0) solid;
+}
+
+.disconnected {
+    color: red;
+    border: 1px red solid;
+}

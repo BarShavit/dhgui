@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MaterialModule } from '../material/material.module';
 import { StateModule } from '../state/state.module';
+import { LivelinessModule } from '../liveliness/liveliness.module';
 
 
 
@@ -11,7 +12,8 @@ import { StateModule } from '../state/state.module';
   imports: [
     CommonModule,
     MaterialModule,
-    StateModule
+    StateModule,
+    LivelinessModule
   ]
 })
 export class DashboardModule { }
