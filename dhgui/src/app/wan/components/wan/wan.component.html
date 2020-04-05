@@ -1,0 +1,24 @@
+<mat-card class="main-card">
+    <mat-card-header>
+        <mat-card-title class="title">WAN</mat-card-title>
+        <app-wan-icon mat-card-avatar></app-wan-icon>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-tab-group>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon>network_cell</mat-icon>
+                    טופולוגיה
+                </ng-template>
+                <app-topology class="full-size"></app-topology>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon>people</mat-icon>
+                    כוחות משימה
+                </ng-template>
+                <app-task-forces class="full-size"></app-task-forces>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+</mat-card>

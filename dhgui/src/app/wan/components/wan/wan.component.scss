@@ -1,0 +1,22 @@
+.main-card {
+    padding: 0 !important;
+    padding-top: 4% !important;
+    padding-right: 4% !important;
+    height: 95%;
+    width: 95%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+}
+
+.title {
+    margin-top: 12px !important;
+    margin-bottom: 0 !important;
+    font-weight: initial;
+}
+
+::ng-deep.mat-tab-label,
+ ::ng-deep.mat-tab-label-active {
+    min-width: 120px!important;
+    padding: 3px!important;
+    margin: 3px!important;
+}

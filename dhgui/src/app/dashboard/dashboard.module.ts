@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MaterialModule } from '../material/material.module';
 import { StateModule } from '../state/state.module';
 import { LivelinessModule } from '../liveliness/liveliness.module';
+import { WanModule } from '../wan/wan.module';
 
 
 
@@ -13,7 +14,8 @@ import { LivelinessModule } from '../liveliness/liveliness.module';
     CommonModule,
     MaterialModule,
     StateModule,
-    LivelinessModule
+    LivelinessModule,
+    WanModule
   ]
 })
 export class DashboardModule { }
