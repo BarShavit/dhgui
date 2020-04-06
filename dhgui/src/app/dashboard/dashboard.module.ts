@@ -1,3 +1,4 @@
+import { TagamModule } from './../tagam/tagam.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,7 +18,8 @@ import { WLModule } from '../wl/wl.module';
     StateModule,
     LivelinessModule,
     WanModule,
-    WLModule
+    WLModule,
+    TagamModule
   ]
 })
 export class DashboardModule { }

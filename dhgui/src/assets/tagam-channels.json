@@ -1,0 +1,42 @@
+[{
+        "computerName": "מחשב על",
+        "channel": 1,
+        "status": 0,
+        "logicalChannels": [{
+            "name": "א",
+            "status": 0
+        }]
+    },
+    {
+        "computerName": "מחשב על",
+        "channel": 2,
+        "status": 1,
+        "logicalChannels": [{
+                "name": "ב",
+                "status": 0
+            },
+            {
+                "name": "ג",
+                "status": 1
+            }
+        ]
+    },
+    {
+        "computerName": "מחשב בלאי",
+        "channel": 1,
+        "status": 2,
+        "logicalChannels": [{
+            "name": "ד",
+            "status": 0
+        }]
+    },
+    {
+        "computerName": "מחשב בלאי",
+        "channel": 2,
+        "status": 3,
+        "logicalChannels": [{
+            "name": "ה",
+            "status": 0
+        }]
+    }
+]

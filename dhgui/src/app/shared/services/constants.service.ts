@@ -37,5 +37,9 @@ export class ConstantsService {
   wlAddress = "/assets";
   getWLChannels = this.wlAddress + "/wl-channels.json";
 
+  /* Tagam */
+  tagamAddress = "/assets";
+  getTagamChannels = this.tagamAddress + "/tagam-channels.json";
+
   constructor() { }
 }
