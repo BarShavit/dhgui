@@ -3,3 +3,9 @@
     margin-top: 3%;
     font-size: 1.5em;
 }
+
+.tagam-table {
+    overflow: auto;
+    min-height: calc(100% - 64px);
+    height: calc(100% - 64px);
+}

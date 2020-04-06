@@ -4,15 +4,16 @@
 }
 
 .connected {
-    color: rgb(44, 241, 44);
+    color: white;
 }
 
 .disconnected {
-    color: red;
+    color: #939393;
+    font-weight: bold !important;
 }
 
 .last-seen {
-    font-size: 0.8em !important;
+    font-size: 0.9em !important;
 }
 
 ::ng-deep .mat-list .mat-list-item .mat-line {
