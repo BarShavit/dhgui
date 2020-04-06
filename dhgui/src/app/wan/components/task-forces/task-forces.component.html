@@ -1,1 +1,7 @@
-<p>task-forces works!</p>
+<div class="force-container">
+    <div *ngFor="let force of wanService.forces" class="force">
+        <mat-icon class="force-icon">people_outline</mat-icon>
+        <span class="force-name">{{force.name}}</span>
+        <mat-icon class="more-info">more_vert</mat-icon>
+    </div>
+</div>

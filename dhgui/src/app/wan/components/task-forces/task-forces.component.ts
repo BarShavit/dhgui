@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WanService } from '../../services/wan.service';
 
 @Component({
   selector: 'app-task-forces',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskForcesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public wanService: WanService) { }
 
   ngOnInit(): void {
   }

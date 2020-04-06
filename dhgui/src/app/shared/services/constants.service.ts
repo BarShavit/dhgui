@@ -30,7 +30,7 @@ export class ConstantsService {
 
   /* WAN */
   wanAddress = "/assets";
-  getTology = this.wanAddress + "/wan-topology.json";
+  getTopology = this.wanAddress + "/wan-topology.json";
   getTaskForces = this.wanAddress + "/wan-taskforces.json";
 
   constructor() { }

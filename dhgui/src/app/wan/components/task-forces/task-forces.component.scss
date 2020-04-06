@@ -1,0 +1,22 @@
+.force-container {
+    overflow: auto;
+    min-height: calc(100% - 64px);
+    height: calc(100% - 64px);
+}
+
+.force {
+    margin: 10px;
+}
+
+.force-icon {
+    vertical-align: bottom;
+    margin-left: 10px;
+}
+
+.force-name {
+    vertical-align: text-bottom;
+}
+
+.more-info {
+    float: left;
+}
