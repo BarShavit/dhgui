@@ -3,7 +3,7 @@
         "channel": 1,
         "status": 0,
         "logicalChannels": [{
-            "name": "א",
+            "name": "a",
             "status": 0
         }]
     },
@@ -12,11 +12,11 @@
         "channel": 2,
         "status": 1,
         "logicalChannels": [{
-                "name": "ב",
+                "name": "b",
                 "status": 0
             },
             {
-                "name": "ג",
+                "name": "c",
                 "status": 1
             }
         ]
@@ -26,7 +26,7 @@
         "channel": 1,
         "status": 2,
         "logicalChannels": [{
-            "name": "ד",
+            "name": "d",
             "status": 0
         }]
     },
@@ -35,7 +35,7 @@
         "channel": 2,
         "status": 3,
         "logicalChannels": [{
-            "name": "ה",
+            "name": "e",
             "status": 0
         }]
     }

@@ -35,13 +35,16 @@
 }
 
 .available {
-    background-color: rgb(0, 243, 0);
+    background-color: rgb(44, 241, 44);
+    color: black;
 }
 
 .strict {
     background-color: rgb(255, 166, 0);
+    color: black;
 }
 
 .failure {
     background-color: red;
+    color: black;
 }

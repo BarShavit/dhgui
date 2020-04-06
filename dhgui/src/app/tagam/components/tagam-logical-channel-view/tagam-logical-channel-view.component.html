@@ -1,1 +1,3 @@
-<p>tagam-logical-channel-view works!</p>
+<div *ngFor="let ch of channel.logicalChannels" class="channel" [class.available]="ch.status==0" [class.strict]="ch.status==1" [class.failure]="channel.status==3">
+    {{ch.name}}
+</div>

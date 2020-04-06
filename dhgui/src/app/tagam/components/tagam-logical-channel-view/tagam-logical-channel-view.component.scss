@@ -1,0 +1,25 @@
+.channel {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    margin-left: 8px;
+    display: inline-block;
+}
+
+.available {
+    background-color: rgb(44, 241, 44);
+    color: black;
+}
+
+.strict {
+    background-color: rgb(255, 166, 0);
+    color: black;
+}
+
+.failure {
+    background-color: red;
+    color: black;
+}
