@@ -33,5 +33,9 @@ export class ConstantsService {
   getTopology = this.wanAddress + "/wan-topology.json";
   getTaskForces = this.wanAddress + "/wan-taskforces.json";
 
+  /* WL */
+  wlAddress = "/assets";
+  getWLChannels = this.wlAddress + "/wl-channels.json";
+
   constructor() { }
 }

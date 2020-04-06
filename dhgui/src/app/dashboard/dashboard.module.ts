@@ -5,6 +5,7 @@ import { MaterialModule } from '../material/material.module';
 import { StateModule } from '../state/state.module';
 import { LivelinessModule } from '../liveliness/liveliness.module';
 import { WanModule } from '../wan/wan.module';
+import { WLModule } from '../wl/wl.module';
 
 
 
@@ -15,7 +16,8 @@ import { WanModule } from '../wan/wan.module';
     MaterialModule,
     StateModule,
     LivelinessModule,
-    WanModule
+    WanModule,
+    WLModule
   ]
 })
 export class DashboardModule { }
