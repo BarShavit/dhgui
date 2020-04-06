@@ -1,5 +1,7 @@
 <div class="liveliness-container">
-    <span *ngFor="let liveliness of livelinessService.systemLiveliness">
-        <app-system-liveliness [systemLiveliness]="liveliness"></app-system-liveliness>
-    </span>
+    <mat-grid-list cols="2" rowHeight="fit" class="liveliness-grid">
+        <mat-grid-tile *ngFor="let liveliness of livelinessService.systemLiveliness">
+            <app-system-liveliness [systemLiveliness]="liveliness"></app-system-liveliness>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
