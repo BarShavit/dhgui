@@ -6,11 +6,13 @@ import { TaskForcesComponent } from './components/task-forces/task-forces.compon
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { WanIconComponent } from './components/wan-icon/wan-icon.component';
+import { ViewTaskForceComponent } from './components/view-task-force/view-task-force.component';
+import { WanMembersViewComponent } from './components/wan-members-view/wan-members-view.component';
 
 
 
 @NgModule({
-  declarations: [WanComponent, TopologyComponent, TaskForcesComponent, WanIconComponent],
+  declarations: [WanComponent, TopologyComponent, TaskForcesComponent, WanIconComponent, ViewTaskForceComponent, WanMembersViewComponent],
   imports: [
     CommonModule,
     SharedModule,

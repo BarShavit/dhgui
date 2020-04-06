@@ -1,21 +1,8 @@
-.connected {
-    color: rgb(0, 212, 0);
-}
-
-.disconnected {
-    color: red;
-}
-
 .topology-container {
-    overflow: auto;
     min-height: calc(100% - 64px);
     height: calc(100% - 64px);
 }
 
 ::ng-deep .mat-tab-body-wrapper {
     height: 100%;
-}
-
-.last-seen {
-    font-size: 0.5em;
 }
