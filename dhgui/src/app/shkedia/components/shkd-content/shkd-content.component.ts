@@ -1,6 +1,9 @@
+import { ShkediaChannel } from './../../../shared/models/shkd/shkedia-channel';
 import { ShkdService } from './../../services/shkd.service';
 import { Component, OnInit } from '@angular/core';
 import { ChannelState } from 'src/app/shared/models/common/channel-status';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ShkdTopologyViewComponent } from '../shkd-topology-view/shkd-topology-view.component';
 
 @Component({
   selector: 'app-shkd-content',
@@ -11,7 +14,8 @@ export class ShkdContentComponent implements OnInit {
 
   displayedColumns: string[] = ['channelId', 'logicalChannels', 'status', 'sender', 'topology'];
 
-  constructor(public shkdService: ShkdService) { }
+  constructor(public shkdService: ShkdService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -34,5 +38,13 @@ export class ShkdContentComponent implements OnInit {
         return "לא ידוע";
       }
     }
+  }
+
+  topology(channel: ShkediaChannel) {
+    let config = new MatDialogConfig();
+    config.data = channel;
+    config.width = "350px";
+
+    this.dialog.open(ShkdTopologyViewComponent, config);
   }
 }

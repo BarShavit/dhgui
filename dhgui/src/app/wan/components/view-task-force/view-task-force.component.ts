@@ -11,8 +11,7 @@ export class ViewTaskForceComponent implements OnInit {
 
   force: TaskForce;
 
-  constructor(private dialogRef: MatDialogRef<ViewTaskForceComponent>,
-    @Inject(MAT_DIALOG_DATA) data) {
+  constructor(@Inject(MAT_DIALOG_DATA) data) {
     this.force = data;
   }
 

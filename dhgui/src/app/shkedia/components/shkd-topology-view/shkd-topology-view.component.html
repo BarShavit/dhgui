@@ -1,0 +1,11 @@
+<div class="title">
+    <mat-icon class="topology-icon">people_outline</mat-icon>
+    <span class="title-text">טופולוגיית ערוץ שקדייה {{channel.channelId}}</span>
+</div>
+
+<mat-list class="topology-container">
+    <mat-list-item *ngFor="let member of channel.topology">
+        <div mat-line>{{member.name}}</div>
+        <mat-icon>bluetooth_connected</mat-icon>
+    </mat-list-item>
+</mat-list>
