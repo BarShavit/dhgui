@@ -1,6 +1,6 @@
 import { TagamPhysicalChannel } from './../../../shared/models/tagam/physical-channel';
 import { Component, OnInit, Input } from '@angular/core';
-import { TagamLogicalChannel } from 'src/app/shared/models/tagam/logical-channel';
+import { LogicalChannel } from 'src/app/shared/models/common/logical-channel';
 
 @Component({
   selector: 'app-tagam-logical-channel-view',

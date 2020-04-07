@@ -1,17 +1,17 @@
-import { TagamService } from './../../services/tagam.service';
+import { ShkdService } from './../../services/shkd.service';
 import { Component, OnInit } from '@angular/core';
 import { ChannelState } from 'src/app/shared/models/common/channel-status';
 
 @Component({
-  selector: 'app-tagam-content',
-  templateUrl: './tagam-content.component.html',
-  styleUrls: ['./tagam-content.component.scss']
+  selector: 'app-shkd-content',
+  templateUrl: './shkd-content.component.html',
+  styleUrls: ['./shkd-content.component.scss']
 })
-export class TagamContentComponent implements OnInit {
+export class ShkdContentComponent implements OnInit {
 
-  displayedColumns: string[] = ['computerName', 'channel', 'logicalChannels', 'status'];
+  displayedColumns: string[] = ['channelId', 'logicalChannels', 'status', 'sender', 'topology'];
 
-  constructor(public tagamService: TagamService) { }
+  constructor(public shkdService: ShkdService) { }
 
   ngOnInit(): void {
   }

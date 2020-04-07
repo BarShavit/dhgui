@@ -41,5 +41,9 @@ export class ConstantsService {
   tagamAddress = "/assets";
   getTagamChannels = this.tagamAddress + "/tagam-channels.json";
 
+  /* Shkedia */
+  shkediaAddress = "/assets";
+  getShkediaChannels = this.shkediaAddress + "/shkd-channels.json";
+
   constructor() { }
 }

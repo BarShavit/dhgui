@@ -7,6 +7,7 @@ import { StateModule } from '../state/state.module';
 import { LivelinessModule } from '../liveliness/liveliness.module';
 import { WanModule } from '../wan/wan.module';
 import { WLModule } from '../wl/wl.module';
+import { ShkediaModule } from '../shkedia/shkedia.module';
 
 
 
@@ -19,7 +20,8 @@ import { WLModule } from '../wl/wl.module';
     LivelinessModule,
     WanModule,
     WLModule,
-    TagamModule
+    TagamModule,
+    ShkediaModule
   ]
 })
 export class DashboardModule { }

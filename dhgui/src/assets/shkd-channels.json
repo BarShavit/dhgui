@@ -1,0 +1,98 @@
+[{
+        "channelId": 1,
+        "logicalChannels": [{
+                "name": "x",
+                "status": 0
+            },
+            {
+                "name": "y",
+                "status": 1
+            }
+        ],
+        "topology": [{
+                "name": "יוסי"
+            },
+            {
+                "name": "גבי"
+            },
+            {
+                "name": "רועי"
+            },
+            {
+                "name": "דניאל"
+            }
+        ],
+        "status": 0,
+        "sender": null
+    },
+    {
+        "channelId": 2,
+        "logicalChannels": [{
+            "name": "w",
+            "status": 0
+        }],
+        "topology": [{
+                "name": "יוסי"
+            },
+            {
+                "name": "גבי"
+            },
+            {
+                "name": "רועי"
+            },
+            {
+                "name": "דניאל"
+            }
+        ],
+        "status": 1,
+        "sender": {
+            "name": "דניאל"
+        }
+    },
+    {
+        "channelId": 3,
+        "logicalChannels": [{
+            "name": "z",
+            "status": 0
+        }],
+        "topology": [{
+                "name": "יוסי"
+            },
+            {
+                "name": "גבי"
+            },
+            {
+                "name": "רועי"
+            },
+            {
+                "name": "דניאל"
+            }
+        ],
+        "status": 2,
+        "sender": {
+            "name": "רועי"
+        }
+    },
+    {
+        "channelId": 4,
+        "logicalChannels": [{
+            "name": "k",
+            "status": 0
+        }],
+        "topology": [{
+                "name": "יוסי"
+            },
+            {
+                "name": "גבי"
+            },
+            {
+                "name": "רועי"
+            },
+            {
+                "name": "דניאל"
+            }
+        ],
+        "status": 3,
+        "sender": null
+    }
+]

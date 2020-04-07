@@ -1,6 +1,6 @@
 import { ChannelStatus } from '../ChannelStatus';
 
-export class TagamLogicalChannel {
+export class LogicalChannel {
     name: string;
     status: ChannelStatus;
 }
