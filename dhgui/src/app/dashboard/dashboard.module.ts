@@ -1,3 +1,4 @@
+import { ShortcutsModule } from './../shortcuts/shortcuts.module';
 import { TagamModule } from './../tagam/tagam.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -21,7 +22,8 @@ import { ShkediaModule } from '../shkedia/shkedia.module';
     WanModule,
     WLModule,
     TagamModule,
-    ShkediaModule
+    ShkediaModule,
+    ShortcutsModule
   ]
 })
 export class DashboardModule { }

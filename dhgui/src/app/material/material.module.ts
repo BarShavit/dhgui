@@ -6,6 +6,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 let modules = [
   MatCardModule,
@@ -14,7 +16,9 @@ let modules = [
   MatIconModule,
   MatListModule,
   MatDialogModule,
-  MatTableModule
+  MatTableModule,
+  MatButtonModule,
+  MatTooltipModule
 ];
 
 @NgModule({

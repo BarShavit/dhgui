@@ -1,0 +1,26 @@
+.container {
+    margin-top: 33%;
+    display: grid;
+    height: 90%;
+}
+
+.icon {
+    color: #cecece;
+    font-size: 80px;
+    width: 80px;
+    height: 80px;
+}
+
+.button-size {
+    width: 80px;
+    height: 80px;
+}
+
+::ng-deep .mat-icon-button i,
+.mat-icon-button .mat-icon {
+    line-height: initial;
+}
+
+.button-container {
+    text-align: center;
+}
