@@ -1,0 +1,3 @@
+<div *ngFor="let ch of channels" class="channel" [class.available]="ch.status==0" [class.strict]="ch.status==1" [class.failure]="state==3">
+    {{ch.name}}
+</div>

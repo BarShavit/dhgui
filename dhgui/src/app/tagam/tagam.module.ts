@@ -5,12 +5,9 @@ import { TagamIconComponent } from './components/tagam-icon/tagam-icon.component
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { TagamContentComponent } from './components/tagam-content/tagam-content.component';
-import { TagamLogicalChannelViewComponent } from './components/tagam-logical-channel-view/tagam-logical-channel-view.component';
-
-
 
 @NgModule({
-  declarations: [TagamComponent, TagamIconComponent, TagamContentComponent, TagamLogicalChannelViewComponent],
+  declarations: [TagamComponent, TagamIconComponent, TagamContentComponent],
   imports: [
     CommonModule,
     SharedModule,
