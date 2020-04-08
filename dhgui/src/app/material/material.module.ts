@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
 
 let modules = [
   MatCardModule,
@@ -18,7 +19,8 @@ let modules = [
   MatDialogModule,
   MatTableModule,
   MatButtonModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatMenuModule
 ];
 
 @NgModule({

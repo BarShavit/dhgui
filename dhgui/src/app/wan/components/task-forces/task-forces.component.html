@@ -1,7 +1,30 @@
 <div class="force-container">
-    <div *ngFor="let force of wanService.forces" class="force" (click)="viewTaskForce(force)">
-        <mat-icon class="force-icon">people_outline</mat-icon>
-        <span class="force-name">{{force.name}}</span>
-        <mat-icon class="more-info">more_vert</mat-icon>
+    <div *ngFor="let force of wanService.forces" class="force">
+        <mat-icon class="force-icon clickable" (click)="viewTaskForce(force)">people_outline</mat-icon>
+        <span class="force-name clickable" (click)="viewTaskForce(force)">{{force.name}}</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{data:force}" class="more-info">
+            <mat-icon class="more-info-icon">more_vert</mat-icon>
+        </button>
     </div>
 </div>
+
+<mat-menu #menu="matMenu">
+    <ng-template matMenuContent let-data="data">
+        <button mat-menu-item (click)="viewTaskForce(data)">
+            <mat-icon>info</mat-icon>
+            <span>צפה</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>ערוך</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>directions_run</mat-icon>
+            <span>עזוב</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>delete_outline</mat-icon>
+            <span>מחק</span>
+        </button>
+    </ng-template>
+</mat-menu>
