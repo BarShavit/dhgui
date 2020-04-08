@@ -25,6 +25,7 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
   allMembers: WanMember[] = [];
   filteredPlatform: ReplaySubject<WanMember[]> = new ReplaySubject<WanMember[]>(1);
   private _onDestroy = new Subject<void>();
+  title: string;
 
   constructor(fb: FormBuilder,
     private platformService: PlatformService,
@@ -34,8 +35,10 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
     if (data == null) {
       this.isAdd = true;
       this.force = new TaskForce();
+      this.title = "יצירת כוח משימה"
     } else {
       this.force = data;
+      this.title = `כוח משימה: ${this.force.name}`;
     }
 
     this.form = fb.group({

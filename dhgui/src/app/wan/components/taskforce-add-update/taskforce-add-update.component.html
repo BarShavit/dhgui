@@ -1,12 +1,4 @@
-<div class="title" *ngIf="!isAdd && force != null">
-    <mat-icon class="force-icon">people_outline</mat-icon>
-    <span class="title-text">כוח משימה: {{force.name}}</span>
-</div>
-
-<div class="title" *ngIf="isAdd">
-    <mat-icon class="force-icon">people_outline</mat-icon>
-    <span class="title-text">יצירת כוח משימה</span>
-</div>
+<app-popup-title [iconName]="'people_outline'" [title]="title"></app-popup-title>
 
 <form class="form">
     <mat-form-field [formGroup]="form" *ngIf="isAdd">
