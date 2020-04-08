@@ -1,0 +1,30 @@
+<div class="title" *ngIf="!isAdd && force != null">
+    <mat-icon class="force-icon">people_outline</mat-icon>
+    <span class="title-text">כוח משימה: {{force.name}}</span>
+</div>
+
+<div class="title" *ngIf="isAdd">
+    <mat-icon class="force-icon">people_outline</mat-icon>
+    <span class="title-text">יצירת כוח משימה</span>
+</div>
+
+<form>
+    <mat-form-field [formGroup]="form" *ngIf="isAdd">
+        <mat-label>שם כוח משימה</mat-label>
+        <input matInput [errorStateMatcher]="matcher" formControlName="name" maxlength="16">
+        <mat-error *ngIf="form.controls['name'].errors?.required">
+            נא למלא שם כוח משימה
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select [formControl]="form.controls['platforms']" placeholder="בחר חברי כוח משימה" [multiple]="true" #multiSelect>
+            <ngx-mat-select-search [formControl]="form.controls['filter-platforms']"></ngx-mat-select-search>
+            <mat-option *ngFor="let member of filteredPlatform | async" [value]="member">
+                {{member.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['platforms'].invalid">
+            נא לבחור חברי כוח משימה
+        </mat-error>
+    </mat-form-field>
+</form>

@@ -11,6 +11,7 @@ export class ConstantsService {
   /* AddressLibrary */
   addressLibraryAddress = "/assets";
   getCurrentPlatform = this.addressLibraryAddress + "/platform.json";
+  getAllPlatforms = this.addressLibraryAddress + "/platforms.json"
 
   /* Mivraka */
   mivrakaServerAddress = "/assets";

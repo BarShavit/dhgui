@@ -9,10 +9,11 @@ import { Platform } from '../models/platform';
 export class PlatformService {
 
   currentPlatform: Platform;
+  platforms: Platform[];
 
   constructor(private http: HttpClient, private constants: ConstantsService) { }
 
-  async getPlatform(): Promise<Platform> {
+  async getMyPlatform(): Promise<Platform> {
     if (this.currentPlatform != null) {
       return this.currentPlatform;
     }
@@ -20,6 +21,19 @@ export class PlatformService {
     return this.http.get(this.constants.getCurrentPlatform).toPromise()
       .then(data => {
         this.currentPlatform = <Platform>data;
+        return data;
+      })
+      .catch(() => { return null; });
+  }
+
+  async getPlatforms(): Promise<Platform[]> {
+    if (this.platforms != null) {
+      return this.platforms;
+    }
+
+    return this.http.get(this.constants.getAllPlatforms).toPromise()
+      .then(data => {
+        this.platforms = <Platform[]>data;
         return data;
       })
       .catch(() => { return null; });

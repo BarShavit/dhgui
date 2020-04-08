@@ -9,6 +9,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 let modules = [
   MatCardModule,
@@ -20,7 +25,13 @@ let modules = [
   MatTableModule,
   MatButtonModule,
   MatTooltipModule,
-  MatMenuModule
+  MatMenuModule,
+  MatInputModule,
+  MatSelectModule,
+  MatFormFieldModule,
+  NgxMatSelectSearchModule,
+  FormsModule,
+  ReactiveFormsModule
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@ export class StateComponent implements OnInit {
 
   async ngOnInit() {
     this.version = await this.stateService.getVersion();
-    this.platform = await this.platformService.getPlatform();
+    this.platform = await this.platformService.getMyPlatform();
   }
 
 }

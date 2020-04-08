@@ -3,4 +3,9 @@ export class WanMember {
     name: string;
     isConnected: boolean;
     lastSeen: Date;
+
+    constructor(id: number, name: string) {
+        this.id = id;
+        this.name = name;
+    }
 }
