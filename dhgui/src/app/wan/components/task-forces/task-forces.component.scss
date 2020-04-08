@@ -21,6 +21,8 @@
     float: left;
 }
 
-.more-info-icon {
-    vertical-align: top !important;
+.more-info-button {
+    // make the icon button to be vertical align top
+    // it's an open bug in angular material
+    margin-top: -8px;
 }

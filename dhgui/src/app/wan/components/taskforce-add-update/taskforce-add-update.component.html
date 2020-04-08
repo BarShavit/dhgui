@@ -8,7 +8,7 @@
     <span class="title-text">יצירת כוח משימה</span>
 </div>
 
-<form>
+<form class="form">
     <mat-form-field [formGroup]="form" *ngIf="isAdd">
         <mat-label>שם כוח משימה</mat-label>
         <input matInput [errorStateMatcher]="matcher" formControlName="name" maxlength="16">
@@ -27,4 +27,15 @@
             נא לבחור חברי כוח משימה
         </mat-error>
     </mat-form-field>
+
+    <div class="members">
+        <div *ngFor="let member of form.controls['platforms'].value">
+            <mat-icon class="member-icon">person</mat-icon>
+            <span class="member-text">{{member.name}}</span>
+        </div>
+    </div>
+
+    <div class="save-button">
+        <button mat-button (click)="save()" color="primary">{{getButtonText()}}</button>
+    </div>
 </form>

@@ -2,9 +2,11 @@
     <div *ngFor="let force of wanService.forces" class="force">
         <mat-icon class="force-icon clickable" (click)="viewTaskForce(force)">people_outline</mat-icon>
         <span class="force-name clickable" (click)="viewTaskForce(force)">{{force.name}}</span>
-        <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{data:force}" class="more-info">
-            <mat-icon class="more-info-icon">more_vert</mat-icon>
-        </button>
+        <div class="more-info">
+            <button class="more-info-button" mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{data:force}">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </div>
     </div>
 </div>
 

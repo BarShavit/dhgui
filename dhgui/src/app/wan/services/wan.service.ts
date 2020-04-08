@@ -21,4 +21,18 @@ export class WanService {
       this.forces = <TaskForce[]>data;
     });
   }
+
+  createTaskForce(force: TaskForce) {
+    let memberString = force.members.map(force => force.name).join(",");
+    console.log(`Adding task force with parameters: id: ${force.id},
+     name: ${force.name}, members: ${memberString}`)
+    //TODO:HTTP
+  }
+
+  updateTaskForce(force: TaskForce) {
+    let memberString = force.members.map(force => force.name).join(",");
+    console.log(`Updating task force with parameters: id: ${force.id},
+     name: ${force.name}, members: ${memberString}`)
+    //TODO:HTTP
+  }
 }

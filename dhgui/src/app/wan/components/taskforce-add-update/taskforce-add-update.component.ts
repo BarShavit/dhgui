@@ -1,3 +1,4 @@
+import { WanService } from './../../services/wan.service';
 import { Component, OnInit, Inject, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TaskForce } from 'src/app/shared/models/wan/task-force';
@@ -27,6 +28,7 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
 
   constructor(fb: FormBuilder,
     private platformService: PlatformService,
+    private wanService: WanService,
     private dialogRef: MatDialogRef<TaskforceAddUpdateComponent>,
     @Inject(MAT_DIALOG_DATA) data) {
     if (data == null) {
@@ -117,5 +119,26 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
     });
 
     return result;
+  }
+
+  getButtonText(): string {
+    if (this.isAdd) {
+      return "צור כוח משימה";
+    }
+
+    return "עדכן כוח משימה";
+  }
+
+  save() {
+    this.force.name = this.form.controls["name"].value;
+    this.force.members = this.form.controls["platforms"].value;
+
+    if (this.isAdd) {
+      this.wanService.createTaskForce(this.force);
+    } else {
+      this.wanService.updateTaskForce(this.force);
+    }
+
+    this.dialogRef.close(true);
   }
 }
