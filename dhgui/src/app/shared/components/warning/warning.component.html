@@ -1,0 +1,9 @@
+<app-popup-title [iconName]="'error_outline'" [title]="'אזהרה!'" [textAlign]="'right'" [color]="'red'">
+</app-popup-title>
+<div class="text-container">
+    {{warningMessage}}
+</div>
+<div>
+    <button mat-button (click)="ok()" color="warn">בצע</button>
+    <button mat-button (click)="cancel()">בטל</button>
+</div>

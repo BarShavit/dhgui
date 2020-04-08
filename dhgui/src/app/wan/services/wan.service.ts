@@ -35,4 +35,14 @@ export class WanService {
      name: ${force.name}, members: ${memberString}`)
     //TODO:HTTP
   }
+
+  leaveTaskForce(force: TaskForce) {
+    console.log(`Leaving task force ${force.name}`);
+    //TODO:HTTP
+  }
+
+  deleteTaskForce(force: TaskForce) {
+    console.log(`Deleting task force ${force.name}`);
+    //TODO:HTTP
+  }
 }

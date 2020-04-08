@@ -20,11 +20,11 @@
             <mat-icon>edit</mat-icon>
             <span>ערוך</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="leaveTaskForce(data)">
             <mat-icon>directions_run</mat-icon>
             <span>עזוב</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="deleteTaskForce(data)">
             <mat-icon>delete_outline</mat-icon>
             <span>מחק</span>
         </button>

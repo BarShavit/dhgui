@@ -9,6 +9,8 @@ export class PopupTitleComponent implements OnInit {
 
   @Input() iconName: string;
   @Input() title: string;
+  @Input() textAlign: string = "center";
+  @Input() color: string = "#00aeff";
 
   constructor() { }
 

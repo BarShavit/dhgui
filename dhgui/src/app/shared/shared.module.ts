@@ -4,9 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LogicalChannelsViewComponent } from './components/logical-channels-view/logical-channels-view.component';
 import { PopupTitleComponent } from './components/popup-title/popup-title.component';
 import { MaterialModule } from '../material/material.module';
+import { WarningComponent } from './components/warning/warning.component';
 
 @NgModule({
-  declarations: [LogicalChannelsViewComponent, PopupTitleComponent],
+  declarations: [LogicalChannelsViewComponent, PopupTitleComponent, WarningComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -14,7 +15,8 @@ import { MaterialModule } from '../material/material.module';
   ],
   exports: [
     LogicalChannelsViewComponent,
-    PopupTitleComponent
+    PopupTitleComponent,
+    WarningComponent
   ]
 })
 export class SharedModule { }
