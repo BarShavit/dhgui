@@ -1,0 +1,29 @@
+<app-popup-title [iconName]="'open_in_new'" [title]="title"></app-popup-title>
+
+<form>
+    <mat-form-field [formGroup]="form">
+        <mat-label>שם ערוץ לוגי</mat-label>
+        <input matInput [errorStateMatcher]="matcher" formControlName="name" maxlength="16">
+        <mat-error *ngIf="form.controls['name'].errors?.required">
+            נא למלא שם ערוץ לוגי
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>מצב ערוץ</mat-label>
+        <mat-select [formControl]="form.controls['state']" required>
+            <mat-option [value]="0">רגיל</mat-option>
+            <mat-option [value]="1">קליטה בלבד</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['state']">נא לבחור מצב ערוץ</mat-error>
+    </mat-form-field>
+
+    <div *ngIf="isAdd">
+        <button mat-button color="primary" (click)="create()" [disabled]="!form.valid">צור ערוץ לוגי</button>
+    </div>
+
+    <div *ngIf="!isAdd">
+        <button mat-button color="primary" (click)="update()" [disabled]="!form.valid">עדכן</button>
+        <button mat-button color="warn" (click)="delete()" [disabled]="canDelete()">מחק</button>
+    </div>
+</form>

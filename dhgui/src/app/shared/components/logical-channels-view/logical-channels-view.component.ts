@@ -1,6 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { LogicalChannelPopupInit } from './../../models/common/logical-channel-init';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { LogicalChannel } from 'src/app/shared/models/common/logical-channel';
 import { ChannelState } from 'src/app/shared/models/common/channel-status';
+import { EditLogicalChannelComponent } from '../add-logical-channel/edit-logical-channel.component';
+import { } from 'protractor';
 
 @Component({
   selector: 'app-logical-channels-view',
@@ -13,9 +17,28 @@ export class LogicalChannelsViewComponent implements OnInit {
   @Input() state: ChannelState = ChannelState.Failure;
   @Input() showManagement: boolean = false;
 
-  constructor() { }
+  @Output() addChannel = new EventEmitter<LogicalChannelPopupInit>();
+
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  create() {
+    let title = `הוספת ערוץ לוגי`
+
+    let config = new MatDialogConfig();
+    config.data = new LogicalChannelPopupInit(title, true, "");
+    config.width = "350px";
+
+    let addDialog = this.dialog.open(EditLogicalChannelComponent, config);
+
+    addDialog.afterClosed().toPromise().then(data => {
+      if (!data) {
+        return;
+      }
+
+      this.addChannel.emit(data);
+    });
+  }
 }

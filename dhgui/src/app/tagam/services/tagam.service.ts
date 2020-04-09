@@ -1,3 +1,4 @@
+import { LogicalChannelResult } from './../../shared/models/common/logical-channel-result';
 import { ConstantsService } from 'src/app/shared/services/constants.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -14,5 +15,12 @@ export class TagamService {
     this.http.get(this.constants.getTagamChannels).toPromise().then(data => {
       this.channels = <TagamPhysicalChannel[]>data;
     });
+  }
+
+  addLogicalChannel(channel: TagamPhysicalChannel, result: LogicalChannelResult) {
+    console.log(`Adding channel ${result.logicalChannelName} with state ${result.state}
+    to physical channel ${channel.computerName}-${channel.channel}`);
+
+    //TODO:HTTP
   }
 }

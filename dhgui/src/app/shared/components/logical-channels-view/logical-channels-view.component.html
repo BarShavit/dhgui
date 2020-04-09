@@ -3,11 +3,7 @@
         {{ch.name}}
     </div>
 
-    <div class="management-icon-container">
+    <div class="management-icon-container" (click)="create()" *ngIf="showManagement" matTooltip="הוסף ערוץ לוגי">
         <mat-icon class="management-icon">add_circle</mat-icon>
-    </div>
-
-    <div class="management-icon-container">
-        <mat-icon class="management-icon">remove_circle</mat-icon>
     </div>
 </div>
