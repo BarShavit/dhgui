@@ -10,7 +10,7 @@ import { ChannelState } from 'src/app/shared/models/common/channel-status';
 export class LogicalChannelsViewComponent implements OnInit {
 
   @Input() channels: LogicalChannel[] = [];
-  @Input() state: ChannelState
+  @Input() state: ChannelState = ChannelState.Failure;
 
   constructor() { }
 

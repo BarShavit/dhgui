@@ -1,6 +1,6 @@
 export enum ChannelState {
-    free,
-    sending,
-    receiving,
-    failure
+    Free,
+    Sending,
+    Receiving,
+    Failure
 }

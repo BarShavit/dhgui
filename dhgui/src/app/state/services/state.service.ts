@@ -8,18 +8,19 @@ import { ConstantsService } from 'src/app/shared/services/constants.service';
 })
 export class StateService {
 
-  version: Version;
+  version: Version | null = null;
 
-  constructor(private http: HttpClient, private constants: ConstantsService) { }
+  constructor(private http: HttpClient, private constants: ConstantsService) {
+  }
 
-  async getVersion(): Promise<Version> {
+  async getVersion(): Promise<Version | null> {
     if (this.version != null) {
       return this.version;
     }
 
-    return this.http.get(this.constants.getVersion).toPromise()
+    return this.http.get<Version>(this.constants.getVersion).toPromise()
       .then(data => {
-        this.version = <Version>data;
+        this.version = data;
         return data;
       })
       .catch(() => { return null; });

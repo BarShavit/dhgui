@@ -9,10 +9,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ShkdTopologyViewComponent implements OnInit {
 
-  public channel: ShkediaChannel;
+  channel: ShkediaChannel;
+  title: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) data) {
+  constructor(@Inject(MAT_DIALOG_DATA) data: ShkediaChannel) {
     this.channel = data;
+    this.title = `טופולוגיית ערוץ ${this.channel.channelId}`;
   }
 
   ngOnInit(): void {

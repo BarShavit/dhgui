@@ -22,16 +22,16 @@ export class ShkdContentComponent implements OnInit {
 
   getStatusName(status: ChannelState): string {
     switch (status) {
-      case ChannelState.free: {
+      case ChannelState.Free: {
         return "פנוי";
       }
-      case ChannelState.sending: {
+      case ChannelState.Sending: {
         return "שולח";
       }
-      case ChannelState.receiving: {
+      case ChannelState.Receiving: {
         return "מקבל";
       }
-      case ChannelState.failure: {
+      case ChannelState.Failure: {
         return "תקול";
       }
       default: {

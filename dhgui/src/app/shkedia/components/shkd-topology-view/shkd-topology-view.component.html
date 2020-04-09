@@ -1,7 +1,4 @@
-<div class="title">
-    <mat-icon class="topology-icon">people_outline</mat-icon>
-    <span class="title-text">טופולוגיית ערוץ שקדייה {{channel.channelId}}</span>
-</div>
+<app-popup-title [iconName]="'people_outline'" [title]="title"></app-popup-title>
 
 <mat-list class="topology-container">
     <mat-list-item *ngFor="let member of channel.topology">

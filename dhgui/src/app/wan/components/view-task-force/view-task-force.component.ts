@@ -12,7 +12,7 @@ export class ViewTaskForceComponent implements OnInit {
   force: TaskForce;
   title: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) data) {
+  constructor(@Inject(MAT_DIALOG_DATA) data: TaskForce) {
     this.force = data;
     this.title = `כוח משימה: ${this.force.name}`;
   }

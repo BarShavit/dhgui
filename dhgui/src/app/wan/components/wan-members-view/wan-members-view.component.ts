@@ -8,14 +8,14 @@ import * as moment from 'moment';
   styleUrls: ['./wan-members-view.component.scss']
 })
 export class WanMembersViewComponent implements OnInit {
-  @Input() members : WanMember[];
+  @Input() members: WanMember[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  lastSeen(member : WanMember){
+  lastSeen(member: WanMember) {
     return moment(member.lastSeen).format("DD/MM/YYYY HH:mm:ss");
   }
 }

@@ -8,16 +8,20 @@ import { SystemLiveliness } from 'src/app/shared/models/system-liveliness';
 })
 export class LivelinessService {
 
-  systemLiveliness : SystemLiveliness[] = [];
+  systemLiveliness: SystemLiveliness[] = [];
 
-  constructor(private http:HttpClient, private constants : ConstantsService) { 
-    this.http.get(this.constants.getShobLiveliness).toPromise().then(this.setNewLiveliness.bind(this));
-    this.http.get(this.constants.getMivrakaLiveliness).toPromise().then(this.setNewLiveliness.bind(this));
-    this.http.get(this.constants.getBugLiveliness).toPromise().then(this.setNewLiveliness.bind(this));
-    this.http.get(this.constants.getBombLiveliness).toPromise().then(this.setNewLiveliness.bind(this));
+  constructor(private http: HttpClient, private constants: ConstantsService) {
+    this.http.get<SystemLiveliness>(this.constants.getShobLiveliness)
+      .toPromise().then(this.setNewLiveliness.bind(this));
+    this.http.get<SystemLiveliness>(this.constants.getMivrakaLiveliness)
+      .toPromise().then(this.setNewLiveliness.bind(this));
+    this.http.get<SystemLiveliness>(this.constants.getBugLiveliness)
+      .toPromise().then(this.setNewLiveliness.bind(this));
+    this.http.get<SystemLiveliness>(this.constants.getBombLiveliness)
+      .toPromise().then(this.setNewLiveliness.bind(this));
   }
 
-  private setNewLiveliness(liveliness:SystemLiveliness){
+  private setNewLiveliness(liveliness: SystemLiveliness) {
     this.systemLiveliness.push(liveliness);
 
     // We sort to save the same liveliness order

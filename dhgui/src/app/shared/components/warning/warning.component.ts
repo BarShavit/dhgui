@@ -11,7 +11,7 @@ export class WarningComponent implements OnInit {
   warningMessage: string;
 
   constructor(private dialogRef: MatDialogRef<WarningComponent>,
-    @Inject(MAT_DIALOG_DATA) data) {
+    @Inject(MAT_DIALOG_DATA) data: string) {
     this.warningMessage = data;
   }
 

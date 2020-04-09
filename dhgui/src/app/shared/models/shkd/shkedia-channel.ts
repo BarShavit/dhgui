@@ -8,4 +8,12 @@ export class ShkediaChannel {
     topology: ShkediaMember[];
     status: ChannelState;
     sender: ShkediaMember;
+
+    constructor() {
+        this.channelId = 0;
+        this.logicalChannels = [];
+        this.topology = [];
+        this.status = ChannelState.Failure;
+        this.sender = new ShkediaMember();
+    }
 }

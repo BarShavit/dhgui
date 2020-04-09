@@ -8,32 +8,32 @@ import { Platform } from '../models/platform';
 })
 export class PlatformService {
 
-  currentPlatform: Platform;
-  platforms: Platform[];
+  currentPlatform: Platform | null = null;
+  platforms: Platform[] | null = null;
 
   constructor(private http: HttpClient, private constants: ConstantsService) { }
 
-  async getMyPlatform(): Promise<Platform> {
+  async getMyPlatform(): Promise<Platform | null> {
     if (this.currentPlatform != null) {
       return this.currentPlatform;
     }
 
-    return this.http.get(this.constants.getCurrentPlatform).toPromise()
+    return this.http.get<Platform>(this.constants.getCurrentPlatform).toPromise()
       .then(data => {
-        this.currentPlatform = <Platform>data;
+        this.currentPlatform = data;
         return data;
       })
       .catch(() => { return null; });
   }
 
-  async getPlatforms(): Promise<Platform[]> {
+  async getPlatforms(): Promise<Platform[] | null> {
     if (this.platforms != null) {
       return this.platforms;
     }
 
-    return this.http.get(this.constants.getAllPlatforms).toPromise()
+    return this.http.get<Platform[]>(this.constants.getAllPlatforms).toPromise()
       .then(data => {
-        this.platforms = <Platform[]>data;
+        this.platforms = data;
         return data;
       })
       .catch(() => { return null; });

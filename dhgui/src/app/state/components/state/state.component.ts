@@ -12,11 +12,14 @@ import { TimeService } from 'src/app/shared/services/time.service';
 })
 export class StateComponent implements OnInit {
 
-  version: Version;
-  platform: Platform;
+  version: Version | null;
+  platform: Platform | null;
 
-  constructor(private stateService: StateService, private platformService : PlatformService,
-    public timeService : TimeService) { }
+  constructor(private stateService: StateService, private platformService: PlatformService,
+    public timeService: TimeService) {
+    this.version = new Version();
+    this.platform = new Platform();
+  }
 
   async ngOnInit() {
     this.version = await this.stateService.getVersion();

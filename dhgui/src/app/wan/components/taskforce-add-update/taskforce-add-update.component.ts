@@ -17,7 +17,7 @@ import { MatSelect } from '@angular/material/select';
 })
 export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild('multiSelect', { static: true }) multiSelect: MatSelect;
+  @ViewChild('multiSelect', { static: true }) multiSelect: MatSelect | undefined;
   isAdd: boolean = false;
   force: TaskForce;
   matcher = new MyErrorStateMatcher();
@@ -31,7 +31,7 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
     private platformService: PlatformService,
     private wanService: WanService,
     private dialogRef: MatDialogRef<TaskforceAddUpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) data) {
+    @Inject(MAT_DIALOG_DATA) data: TaskForce) {
     if (data == null) {
       this.isAdd = true;
       this.force = new TaskForce();
@@ -73,7 +73,9 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
     this.filteredPlatform
       .pipe(take(1), takeUntil(this._onDestroy))
       .subscribe(() => {
-        this.multiSelect.compareWith = (a: WanMember, b: WanMember) => a && b && a.id === b.id;
+        if (this.multiSelect != null) {
+          this.multiSelect.compareWith = (a: WanMember, b: WanMember) => a && b && a.id === b.id;
+        }
       });
   }
 
@@ -81,8 +83,12 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
     let currentPlatform = await this.platformService.getMyPlatform();
     let allPlatform = await this.platformService.getPlatforms();
 
+    if (allPlatform == null || currentPlatform == null) {
+      return;
+    }
+
     allPlatform.forEach(platform => {
-      if (platform.id != currentPlatform.id) {
+      if (currentPlatform != null && platform.id != currentPlatform.id) {
         this.allMembers.push(new WanMember(platform.id, platform.name));
       }
     });
@@ -111,7 +117,7 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
       return [];
     }
 
-    let result = [];
+    let result: WanMember[] = [];
 
     this.force.members.forEach(forceMember => {
       this.allMembers.forEach(platform => {

@@ -8,7 +8,7 @@ import { SystemLiveliness } from 'src/app/shared/models/system-liveliness';
 })
 export class SystemLivelinessComponent implements OnInit {
 
-  @Input() systemLiveliness : SystemLiveliness;
+  @Input() systemLiveliness: SystemLiveliness = new SystemLiveliness();
 
   constructor() { }
 
