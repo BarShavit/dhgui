@@ -11,6 +11,7 @@ export class LogicalChannelsViewComponent implements OnInit {
 
   @Input() channels: LogicalChannel[] = [];
   @Input() state: ChannelState = ChannelState.Failure;
+  @Input() showManagement: boolean = false;
 
   constructor() { }
 

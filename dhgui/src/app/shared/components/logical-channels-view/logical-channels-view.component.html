@@ -1,3 +1,13 @@
-<div *ngFor="let ch of channels" class="channel" [class.available]="ch.status==0" [class.strict]="ch.status==1" [class.failure]="state==3">
-    {{ch.name}}
+<div class="channel-container">
+    <div *ngFor="let ch of channels" class="channel" [class.available]="ch.status==0" [class.strict]="ch.status==1" [class.failure]="state==3">
+        {{ch.name}}
+    </div>
+
+    <div class="management-icon-container">
+        <mat-icon class="management-icon">add_circle</mat-icon>
+    </div>
+
+    <div class="management-icon-container">
+        <mat-icon class="management-icon">remove_circle</mat-icon>
+    </div>
 </div>

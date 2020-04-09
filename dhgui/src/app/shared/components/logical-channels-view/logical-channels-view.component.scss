@@ -23,3 +23,30 @@
     background-color: red;
     color: black;
 }
+
+.management-icon {
+    vertical-align: bottom;
+    cursor: pointer;
+    font-size: 30px !important;
+    width: 30px;
+    height: 30px;
+    line-height: 26px;
+}
+
+.management-icon:hover {
+    background-color: rgba($color: #303030, $alpha: 0.5);
+}
+
+.management-icon-container {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    text-align: center;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.channel-container {
+    margin-top: 5px;
+}

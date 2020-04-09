@@ -15,7 +15,7 @@
         <ng-container matColumnDef="logicalChannels">
             <th mat-header-cell *matHeaderCellDef> ערוצים לוגיים </th>
             <td mat-cell *matCellDef="let element">
-                <app-logical-channels-view [channels]="element.logicalChannels" [state]="element.status">
+                <app-logical-channels-view [channels]="element.logicalChannels" [state]="element.status" [showManagement]="true">
                 </app-logical-channels-view>
             </td>
         </ng-container>
