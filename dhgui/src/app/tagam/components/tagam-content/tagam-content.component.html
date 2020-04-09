@@ -3,7 +3,7 @@
 </div>
 
 <div class="full-size overflow">
-    <table mat-table [dataSource]="tagamService.channels" *ngIf="tagamService.channels.length > 0" class="full-size">
+    <table mat-table [dataSource]="tagamService.channels" *ngIf="tagamService.channels.length > 0" class="full-size text-align-center table-design">
         <ng-container matColumnDef="computerName">
             <th mat-header-cell *matHeaderCellDef> שם מחשב </th>
             <td mat-cell *matCellDef="let element"> {{element.computerName}} </td>

@@ -9,3 +9,12 @@
     min-height: calc(100% - 64px);
     height: calc(100% - 64px);
 }
+
+th.mat-header-cell {
+    text-align: center !important;
+}
+
+.table-design {
+    // Avoid the stupid padding right of the table column
+    margin-right: -12px !important;
+}

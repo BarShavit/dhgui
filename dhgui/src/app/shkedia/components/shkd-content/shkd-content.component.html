@@ -2,8 +2,8 @@
     אין ערוצים זמינים
 </div>
 
-<div class="full-size overflow">
-    <table mat-table [dataSource]="shkdService.channels" *ngIf="shkdService.channels.length > 0" class="full-size">
+<div class="full-size overflow ">
+    <table mat-table [dataSource]="shkdService.channels" *ngIf="shkdService.channels.length > 0" class="full-size text-align-center">
         <ng-container matColumnDef="channelId">
             <th mat-header-cell *matHeaderCellDef> ערוץ שקדייה </th>
             <td mat-cell *matCellDef="let element"> {{element.channelId}} </td>
@@ -34,7 +34,7 @@
             </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="row-height"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="row-height text-align-center"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row-height"></tr>
     </table>
 </div>
