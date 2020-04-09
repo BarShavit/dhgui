@@ -11,14 +11,19 @@ export class WanService {
 
   topology: WanMember[] = [];
   forces: TaskForce[] = [];
+  isActive: boolean = true;
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
-    this.http.get(this.constants.getTopology).toPromise().then(data => {
-      this.topology = <WanMember[]>data;
+    this.http.get<WanMember[]>(this.constants.getTopology).toPromise().then(data => {
+      this.topology = data;
     });
 
-    this.http.get(this.constants.getTaskForces).toPromise().then(data => {
-      this.forces = <TaskForce[]>data;
+    this.http.get<TaskForce[]>(this.constants.getTaskForces).toPromise().then(data => {
+      this.forces = data;
+    });
+
+    this.http.get<boolean>(this.constants.getIsWanActive).toPromise().then(data => {
+      this.isActive = data;
     });
   }
 
@@ -43,6 +48,12 @@ export class WanService {
 
   deleteTaskForce(force: TaskForce) {
     console.log(`Deleting task force ${force.name}`);
+    //TODO:HTTP
+  }
+
+  changeWanStatus() {
+    this.isActive = !this.isActive;
+    console.log(`Changed wan status to ${this.isActive}`);
     //TODO:HTTP
   }
 }

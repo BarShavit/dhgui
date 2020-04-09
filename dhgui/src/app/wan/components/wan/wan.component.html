@@ -1,7 +1,12 @@
 <mat-card class="main-card">
-    <mat-card-header>
-        <mat-card-title class="single-title-card">WAN</mat-card-title>
+    <mat-card-header class="wan-card-header">
+        <mat-card-title class="single-title-card inline-block wan-title">WAN</mat-card-title>
         <app-wan-icon mat-card-avatar></app-wan-icon>
+        <mat-card-title class="more-info inline-block">
+            <button mat-button class="settings" [matMenuTriggerFor]="menu">
+                <mat-icon>settings</mat-icon>
+            </button>
+        </mat-card-title>
     </mat-card-header>
     <mat-card-content class="card-content">
         <mat-tab-group [(selectedIndex)]="selectedTab">
@@ -22,3 +27,16 @@
         </mat-tab-group>
     </mat-card-content>
 </mat-card>
+
+<mat-menu #menu="matMenu">
+    <ng-template matMenuContent let-data="data">
+        <button mat-menu-item (click)="addTaskForce()">
+            <mat-icon>person_add</mat-icon>
+            <span>יצירת כוח משימה</span>
+        </button>
+        <button mat-menu-item (click)="changeWanStatus()">
+            <mat-icon>{{getOnOffMenuIcon()}}</mat-icon>
+            <span>{{getOnOffMenuTitle()}}</span>
+        </button>
+    </ng-template>
+</mat-menu>
