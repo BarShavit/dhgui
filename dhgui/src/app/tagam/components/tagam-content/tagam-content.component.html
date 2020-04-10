@@ -6,7 +6,11 @@
     <table mat-table [dataSource]="tagamService.channels" *ngIf="tagamService.channels.length > 0" class="full-size text-align-center table-design">
         <ng-container matColumnDef="computerName">
             <th mat-header-cell *matHeaderCellDef> שם מחשב </th>
-            <td mat-cell *matCellDef="let element"> {{element.computerName}} </td>
+            <td mat-cell *matCellDef="let element">
+                <span matTooltip="{{element.ip}}" matTooltipClass="tooltip">
+                    {{element.computerName}}
+                </span>
+            </td>
         </ng-container>
         <ng-container matColumnDef="channel">
             <th mat-header-cell *matHeaderCellDef> מס' ערוץ </th>

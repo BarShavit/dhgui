@@ -18,3 +18,7 @@ th.mat-header-cell {
     // Avoid the stupid padding right of the table column
     margin-right: -12px !important;
 }
+
+::ng-deep .mat-tooltip {
+    margin-top: 0px !important;
+}

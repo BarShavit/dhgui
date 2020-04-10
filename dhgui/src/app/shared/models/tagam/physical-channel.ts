@@ -6,10 +6,12 @@ export class TagamPhysicalChannel {
     channel: number;
     logicalChannels: LogicalChannel[];
     status: ChannelState;
+    ip: string;
 
     constructor() {
         this.computerName = "";
         this.channel = 0;
+        this.ip = "";
         this.logicalChannels = [];
         this.status = ChannelState.Failure;
     }
