@@ -47,6 +47,7 @@ export class ConstantsService {
   /* Shkedia */
   shkediaAddress = "/assets";
   getShkediaChannels = this.shkediaAddress + "/shkd-channels.json";
+  getIsShkdActive = this.tagamAddress + "/shkd-status.json";
 
   constructor() { }
 }

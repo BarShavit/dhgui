@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-shkd-icon',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shkd-icon.component.scss']
 })
 export class ShkdIconComponent implements OnInit {
+
+  @Input() color: string = "#03a9f4";
 
   constructor() { }
 

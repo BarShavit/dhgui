@@ -10,10 +10,15 @@ import { LogicalChannelResult } from 'src/app/shared/models/common/logical-chann
 export class ShkdService {
 
   channels: ShkediaChannel[] = [];
+  isActive: boolean = true;
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
     this.http.get(this.constants.getShkediaChannels).toPromise().then(data => {
       this.channels = <ShkediaChannel[]>data;
+    });
+
+    this.http.get<boolean>(this.constants.getIsShkdActive).toPromise().then(data => {
+      this.isActive = data;
     });
   }
 
@@ -36,6 +41,12 @@ export class ShkdService {
     console.log(`Deleting channel ${result.logicalChannelName}
     of physical channel ${channel.channelId}`);
 
+    //TODO:HTTP
+  }
+
+  changeShkediaStatus() {
+    this.isActive = !this.isActive;
+    console.log(`Changed wan status to ${this.isActive}`);
     //TODO:HTTP
   }
 }

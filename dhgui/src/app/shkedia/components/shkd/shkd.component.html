@@ -1,9 +1,24 @@
 <mat-card class="main-card">
     <mat-card-header class="title">
-        <mat-card-title class="single-title-card">עצים מוזרים</mat-card-title>
-        <app-shkd-icon mat-card-avatar></app-shkd-icon>
+        <mat-card-title class="single-title-card inline-block shkd-title" [class.disabled]="!shkdService.isActive">עצים מוזרים
+        </mat-card-title>
+        <app-shkd-icon mat-card-avatar [color]="getIconColor()"></app-shkd-icon>
+        <mat-card-title class="more-info inline-block">
+            <button mat-button class="settings" [matMenuTriggerFor]="menu">
+                <mat-icon>settings</mat-icon>
+            </button>
+        </mat-card-title>
     </mat-card-header>
     <mat-card-content class="shkd-content">
         <app-shkd-content class="full-size"></app-shkd-content>
     </mat-card-content>
 </mat-card>
+
+<mat-menu #menu="matMenu">
+    <ng-template matMenuContent let-data="data">
+        <button mat-menu-item (click)="changeShkediaStatus()">
+            <mat-icon>{{getOnOffMenuIcon()}}</mat-icon>
+            <span>{{getOnOffMenuTitle()}}</span>
+        </button>
+    </ng-template>
+</mat-menu>
