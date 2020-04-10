@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChannelState } from 'src/app/shared/models/common/channel-status';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ShkdTopologyViewComponent } from '../shkd-topology-view/shkd-topology-view.component';
+import { LogicalChannelResult } from 'src/app/shared/models/common/logical-channel-result';
 
 @Component({
   selector: 'app-shkd-content',
@@ -12,6 +13,7 @@ import { ShkdTopologyViewComponent } from '../shkd-topology-view/shkd-topology-v
 })
 export class ShkdContentComponent implements OnInit {
 
+  displayChannelManagement = new Map<number, boolean>();
   displayedColumns: string[] = ['channelId', 'logicalChannels', 'status', 'sender', 'topology'];
 
   constructor(public shkdService: ShkdService,
@@ -46,5 +48,34 @@ export class ShkdContentComponent implements OnInit {
     config.width = "350px";
 
     this.dialog.open(ShkdTopologyViewComponent, config);
+  }
+
+  mouseOverChannels(channelId: number) {
+    this.displayChannelManagement.set(channelId, true);
+  }
+
+  mouseLeftChannels(channelId: number) {
+    this.displayChannelManagement.set(channelId, false);
+  }
+
+  showManagement(channelId: number): boolean {
+    let channelHover = this.displayChannelManagement.get(channelId);
+    if (channelHover == null) {
+      return false;
+    }
+
+    return channelHover;
+  }
+
+  addChannel(channel: ShkediaChannel, newLogicalChannel: LogicalChannelResult) {
+    this.shkdService.addLogicalChannel(channel, newLogicalChannel);
+  }
+
+  editChannel(channel: ShkediaChannel, logicalChannelResult: LogicalChannelResult) {
+    if (logicalChannelResult.isDelete) {
+      this.shkdService.deleteLogicalChannel(channel, logicalChannelResult);
+    } else {
+      this.shkdService.editLogicalChannel(channel, logicalChannelResult);
+    }
   }
 }
