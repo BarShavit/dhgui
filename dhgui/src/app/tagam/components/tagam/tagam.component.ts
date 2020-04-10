@@ -10,7 +10,7 @@ import { WarningComponent } from 'src/app/shared/components/warning/warning.comp
 })
 export class TagamComponent implements OnInit {
 
-  constructor(private tagamService: TagamService,
+  constructor(public tagamService: TagamService,
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -55,5 +55,13 @@ export class TagamComponent implements OnInit {
 
       this.tagamService.changeTagamStatus();
     });
+  }
+
+  getIconColor(): string {
+    if (this.tagamService.isActive) {
+      return "#03a9f4";
+    }
+
+    return "red";
   }
 }

@@ -1,7 +1,9 @@
 <mat-card class="main-card">
     <mat-card-header class="title">
-        <mat-card-title class="single-title-card inline-block tagam-title">תרג"מ</mat-card-title>
-        <app-tagam-icon mat-card-avatar></app-tagam-icon>
+        <mat-card-title class="single-title-card inline-block tagam-title" [class.disabled]="!tagamService.isActive">
+            תרג"מ
+        </mat-card-title>
+        <app-tagam-icon mat-card-avatar [color]="getIconColor()"></app-tagam-icon>
         <mat-card-title class="more-info inline-block">
             <button mat-button class="settings" [matMenuTriggerFor]="menu">
                 <mat-icon>settings</mat-icon>
