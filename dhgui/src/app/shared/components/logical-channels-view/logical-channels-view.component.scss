@@ -7,6 +7,7 @@
     text-align: center;
     margin-left: 8px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .available {
@@ -29,12 +30,13 @@
     cursor: pointer;
     font-size: 30px !important;
     width: 30px;
-    height: 30px;
+    height: 26px;
     line-height: 26px;
 }
 
-.management-icon:hover {
-    background-color: rgba($color: #303030, $alpha: 0.5);
+.channel-hover:hover {
+    background-color: rgba($color: #888888, $alpha: 0.5);
+    color: white;
 }
 
 .management-icon-container {

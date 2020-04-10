@@ -15,7 +15,7 @@
         <ng-container matColumnDef="logicalChannels">
             <th mat-header-cell *matHeaderCellDef> ערוצים לוגיים </th>
             <td mat-cell *matCellDef="let element" (mouseenter)="mouseOverChannels(element.computerName, element.channel)" (mouseleave)="mouseLeftChannels(element.computerName, element.channel)">
-                <app-logical-channels-view [channels]="element.logicalChannels" [state]="element.status" [showManagement]="showManagement(element.computerName, element.channel)" (addChannel)="addChannel(element, $event)">
+                <app-logical-channels-view [channels]="element.logicalChannels" [state]="element.status" [showManagement]="showManagement(element.computerName, element.channel)" (addChannel)="addChannel(element, $event)" (editChannel)="editChannel(element, $event)">
                 </app-logical-channels-view>
             </td>
         </ng-container>

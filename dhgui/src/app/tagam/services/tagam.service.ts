@@ -23,4 +23,19 @@ export class TagamService {
 
     //TODO:HTTP
   }
+
+  editLogicalChannel(channel: TagamPhysicalChannel, result: LogicalChannelResult) {
+    console.log(`Editing channel ${result.sourceLogicalChannelName} to channel
+    ${result.logicalChannelName} with state ${result.state}
+    of physical channel ${channel.computerName}-${channel.channel}`);
+
+    //TODO:HTTP
+  }
+
+  deleteLogicalChannel(channel: TagamPhysicalChannel, result: LogicalChannelResult) {
+    console.log(`Deleting channel ${result.logicalChannelName}
+    of physical channel ${channel.computerName}-${channel.channel}`);
+
+    //TODO:HTTP
+  }
 }

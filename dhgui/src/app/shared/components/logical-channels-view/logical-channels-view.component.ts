@@ -1,3 +1,4 @@
+import { LogicalChannelResult } from './../../models/common/logical-channel-result';
 import { LogicalChannelPopupInit } from './../../models/common/logical-channel-init';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -17,7 +18,8 @@ export class LogicalChannelsViewComponent implements OnInit {
   @Input() state: ChannelState = ChannelState.Failure;
   @Input() showManagement: boolean = false;
 
-  @Output() addChannel = new EventEmitter<LogicalChannelPopupInit>();
+  @Output() addChannel = new EventEmitter<LogicalChannelResult>();
+  @Output() editChannel = new EventEmitter<LogicalChannelResult>();
 
   constructor(private dialog: MatDialog) { }
 
@@ -28,7 +30,7 @@ export class LogicalChannelsViewComponent implements OnInit {
     let title = `הוספת ערוץ לוגי`
 
     let config = new MatDialogConfig();
-    config.data = new LogicalChannelPopupInit(title, true, "");
+    config.data = new LogicalChannelPopupInit(title, true, null);
     config.width = "350px";
 
     let addDialog = this.dialog.open(EditLogicalChannelComponent, config);
@@ -39,6 +41,24 @@ export class LogicalChannelsViewComponent implements OnInit {
       }
 
       this.addChannel.emit(data);
+    });
+  }
+
+  editLogicalChannel(channel: LogicalChannel) {
+    let title = `עריכת ערוץ לוגי`
+
+    let config = new MatDialogConfig();
+    config.data = new LogicalChannelPopupInit(title, false, channel);
+    config.width = "350px";
+
+    let editDialog = this.dialog.open(EditLogicalChannelComponent, config);
+
+    editDialog.afterClosed().toPromise().then(data => {
+      if (!data) {
+        return;
+      }
+
+      this.editChannel.emit(data);
     });
   }
 }

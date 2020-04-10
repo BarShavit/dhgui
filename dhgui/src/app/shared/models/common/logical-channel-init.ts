@@ -1,11 +1,12 @@
+import { LogicalChannel } from './logical-channel';
 export class LogicalChannelPopupInit {
     title: string;
     isAdd: boolean;
-    sourceChannelName: string;
+    sourceChannel: LogicalChannel | null;
 
-    constructor(title: string, isAdd: boolean, sourceChannelName: string) {
+    constructor(title: string, isAdd: boolean, sourceChannel: LogicalChannel | null) {
         this.title = title;
         this.isAdd = isAdd;
-        this.sourceChannelName = sourceChannelName;
+        this.sourceChannel = sourceChannel;
     }
 }

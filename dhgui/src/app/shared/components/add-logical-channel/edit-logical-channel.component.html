@@ -23,7 +23,7 @@
     </div>
 
     <div *ngIf="!isAdd">
-        <button mat-button color="primary" (click)="update()" [disabled]="!form.valid">עדכן</button>
-        <button mat-button color="warn" (click)="delete()" [disabled]="canDelete()">מחק</button>
+        <button mat-button color="primary" (click)="update()" [disabled]="!canEdit()">עדכן</button>
+        <button mat-button color="warn" (click)="delete()" [disabled]="!canDelete()">מחק</button>
     </div>
 </form>

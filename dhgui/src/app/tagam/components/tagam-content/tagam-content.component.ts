@@ -62,4 +62,12 @@ export class TagamContentComponent implements OnInit {
   addChannel(channel: TagamPhysicalChannel, newLogicalChannel: LogicalChannelResult) {
     this.tagamService.addLogicalChannel(channel, newLogicalChannel);
   }
+
+  editChannel(channel: TagamPhysicalChannel, logicalChannelResult: LogicalChannelResult) {
+    if (logicalChannelResult.isDelete) {
+      this.tagamService.deleteLogicalChannel(channel, logicalChannelResult);
+    } else {
+      this.tagamService.editLogicalChannel(channel, logicalChannelResult);
+    }
+  }
 }

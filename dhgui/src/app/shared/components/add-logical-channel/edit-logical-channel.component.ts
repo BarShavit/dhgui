@@ -1,3 +1,4 @@
+import { LogicalChannel } from 'src/app/shared/models/common/logical-channel';
 import { TagamPhysicalChannel } from 'src/app/shared/models/tagam/physical-channel';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -18,7 +19,7 @@ export class EditLogicalChannelComponent implements OnInit {
   isAdd: boolean;
   matcher = new MyErrorStateMatcher();
   form: FormGroup;
-  sourceChannelName: string;
+  sourceChannel: LogicalChannel | null;
 
   constructor(fb: FormBuilder,
     private dialog: MatDialog,
@@ -26,7 +27,7 @@ export class EditLogicalChannelComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) data: LogicalChannelPopupInit) {
     this.title = data.title;
     this.isAdd = data.isAdd;
-    this.sourceChannelName = data.sourceChannelName;
+    this.sourceChannel = data.sourceChannel;
 
     this.form = fb.group({
       'name': ['', [Validators.required, Validators.maxLength(16)]],
@@ -35,16 +36,26 @@ export class EditLogicalChannelComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.sourceChannel != null && !this.isAdd) {
+      this.form.controls['name'].setValue(this.sourceChannel.name);
+      this.form.controls['state'].setValue(this.sourceChannel.status);
+    }
   }
 
   create() {
     this.dialogRef.close(new LogicalChannelResult(this.form.controls['name'].value,
-      +this.form.controls['state'].value));
+      this.form.controls['name'].value,
+      +this.form.controls['state'].value, false));
   }
 
   update() {
-    this.dialogRef.close(new LogicalChannelResult(this.form.controls['name'].value,
-      +this.form.controls['state'].value));
+    if (this.sourceChannel == null) {
+      return;
+    }
+
+    this.dialogRef.close(new LogicalChannelResult(this.sourceChannel.name,
+      this.form.controls['name'].value,
+      +this.form.controls['state'].value, false));
   }
 
   delete() {
@@ -56,16 +67,29 @@ export class EditLogicalChannelComponent implements OnInit {
 
     dialog.afterClosed().toPromise().then(data => {
       if (!data) {
-        this.dialogRef.close(null);
+        return;
       } else {
-        this.dialogRef.close(new LogicalChannelResult(this.form.controls['name'].value,
-          +this.form.controls['state'].value));
+        if (this.sourceChannel == null) {
+          return;
+        }
+
+        this.dialogRef.close(new LogicalChannelResult(this.sourceChannel.name,
+          this.form.controls['name'].value,
+          +this.form.controls['state'].value, true));
       }
     });
   }
 
+  canEdit(): boolean {
+    return this.sourceChannel != null &&
+      (this.form.controls['name'].value != this.sourceChannel.name ||
+        this.form.controls['state'].value != this.sourceChannel.status) &&
+      this.form.valid;
+  }
+
   canDelete(): boolean {
-    return this.form.controls['name'].value == this.sourceChannelName;
+    return this.sourceChannel != null &&
+      this.form.controls['name'].value == this.sourceChannel.name;
   }
 
 }
