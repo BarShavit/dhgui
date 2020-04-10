@@ -10,10 +10,15 @@ import { TagamPhysicalChannel } from 'src/app/shared/models/tagam/physical-chann
 export class TagamService {
 
   channels: TagamPhysicalChannel[] = [];
+  isActive: boolean = true;
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
     this.http.get(this.constants.getTagamChannels).toPromise().then(data => {
       this.channels = <TagamPhysicalChannel[]>data;
+    });
+
+    this.http.get<boolean>(this.constants.getIsTagamActive).toPromise().then(data => {
+      this.isActive = data;
     });
   }
 
@@ -36,6 +41,12 @@ export class TagamService {
     console.log(`Deleting channel ${result.logicalChannelName}
     of physical channel ${channel.computerName}-${channel.channel}`);
 
+    //TODO:HTTP
+  }
+
+  changeTagamStatus() {
+    this.isActive = !this.isActive;
+    console.log(`Changed tagam status to ${this.isActive}`);
     //TODO:HTTP
   }
 }
