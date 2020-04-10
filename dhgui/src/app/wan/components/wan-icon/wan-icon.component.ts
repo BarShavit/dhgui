@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-wan-icon',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wan-icon.component.scss']
 })
 export class WanIconComponent implements OnInit {
+
+  @Input() color: string = "#03a9f4";
 
   constructor() { }
 

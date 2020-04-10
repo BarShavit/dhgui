@@ -20,7 +20,7 @@ export class WanComponent implements OnInit {
   onOffMenuIcon: string = "";
   onOffMenuTitle: string = "";
 
-  constructor(private wanService: WanService,
+  constructor(public wanService: WanService,
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -72,6 +72,14 @@ export class WanComponent implements OnInit {
     }
 
     return "האם ברצונך להפעיל את התווך?";
+  }
+
+  getIconColor(): string {
+    if (this.wanService.isActive) {
+      return "#03a9f4";
+    }
+
+    return "red";
   }
 
   @HostListener('window:keyup', ['$event'])
