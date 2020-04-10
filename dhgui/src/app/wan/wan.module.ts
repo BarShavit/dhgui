@@ -9,11 +9,12 @@ import { WanIconComponent } from './components/wan-icon/wan-icon.component';
 import { ViewTaskForceComponent } from './components/view-task-force/view-task-force.component';
 import { WanMembersViewComponent } from './components/wan-members-view/wan-members-view.component';
 import { TaskforceAddUpdateComponent } from './components/taskforce-add-update/taskforce-add-update.component';
+import { TopologyFilterPipe } from './pipes/topology-filter.pipe';
 
 
 
 @NgModule({
-  declarations: [WanComponent, TopologyComponent, TaskForcesComponent, WanIconComponent, ViewTaskForceComponent, WanMembersViewComponent, TaskforceAddUpdateComponent],
+  declarations: [WanComponent, TopologyComponent, TaskForcesComponent, WanIconComponent, ViewTaskForceComponent, WanMembersViewComponent, TaskforceAddUpdateComponent, TopologyFilterPipe],
   imports: [
     CommonModule,
     SharedModule,

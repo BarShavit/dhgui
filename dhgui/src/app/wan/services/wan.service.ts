@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ConstantsService } from 'src/app/shared/services/constants.service';
 import { WanMember } from 'src/app/shared/models/wan/member';
 import { TaskForce } from 'src/app/shared/models/wan/task-force';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,14 @@ export class WanService {
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
     this.http.get<WanMember[]>(this.constants.getTopology).toPromise().then(data => {
+      // Changing moshe's last seen to the last hour
+      // so you will see him in the short topology
+      // TODO:Delete this shit
+      let moshe = data.find(m => m.id == 3);
+      if (moshe != null) {
+        moshe.lastSeen = moment().subtract(5, "minutes").toDate();
+      }
+
       this.topology = data;
     });
 
