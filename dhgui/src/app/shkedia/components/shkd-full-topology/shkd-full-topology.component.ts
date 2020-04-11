@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShkdFullTopologyComponent implements OnInit {
 
+  public filterText: string = "";
+
   constructor(private shkdService: ShkdService) { }
 
   ngOnInit(): void {

@@ -8,9 +8,10 @@ import { MaterialModule } from '../material/material.module';
 import { ShkdTopologyViewComponent } from './components/shkd-topology-view/shkd-topology-view.component';
 import { ShkdFullTopologyComponent } from './components/shkd-full-topology/shkd-full-topology.component';
 import { MemberChannelsFormatPipe } from './pipes/member-channels-format.pipe';
+import { MemberNameFilterPipe } from './pipes/member-name-filter.pipe';
 
 @NgModule({
-  declarations: [ShkdComponent, ShkdIconComponent, ShkdContentComponent, ShkdTopologyViewComponent, ShkdFullTopologyComponent, MemberChannelsFormatPipe],
+  declarations: [ShkdComponent, ShkdIconComponent, ShkdContentComponent, ShkdTopologyViewComponent, ShkdFullTopologyComponent, MemberChannelsFormatPipe, MemberNameFilterPipe],
   imports: [
     CommonModule,
     SharedModule,
