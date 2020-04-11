@@ -34,6 +34,7 @@ export class ConstantsService {
   getTopology = this.wanAddress + "/wan-topology.json";
   getTaskForces = this.wanAddress + "/wan-taskforces.json";
   getIsWanActive = this.wanAddress + "/wan-status.json";
+  getBrokerLiveliness = this.wanAddress + "/broker-liveliness.json";
 
   /* WL */
   wlAddress = "/assets";

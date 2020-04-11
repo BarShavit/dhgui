@@ -17,7 +17,7 @@ export class LivelinessService {
       .toPromise().then(this.setNewLiveliness.bind(this));
     this.http.get<SystemLiveliness>(this.constants.getBugLiveliness)
       .toPromise().then(this.setNewLiveliness.bind(this));
-    this.http.get<SystemLiveliness>(this.constants.getBombLiveliness)
+    this.http.get<SystemLiveliness>(this.constants.getBrokerLiveliness)
       .toPromise().then(this.setNewLiveliness.bind(this));
   }
 
