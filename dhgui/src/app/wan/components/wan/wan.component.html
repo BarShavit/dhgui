@@ -31,6 +31,10 @@
 
 <mat-menu #menu="matMenu">
     <ng-template matMenuContent let-data="data">
+        <button mat-menu-item (click)="fullTopology()">
+            <mat-icon>people_outline</mat-icon>
+            <span>טופולוגיה מלאה</span>
+        </button>
         <button mat-menu-item (click)="addTaskForce()">
             <mat-icon>person_add</mat-icon>
             <span>יצירת כוח משימה</span>

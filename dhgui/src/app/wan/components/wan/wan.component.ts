@@ -1,3 +1,4 @@
+import { WanFullTopologyComponent } from './../wan-full-topology/wan-full-topology.component';
 import { WanService } from './../../services/wan.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -40,6 +41,13 @@ export class WanComponent implements OnInit {
     }
 
     return "הפעלת תווך";
+  }
+
+  fullTopology() {
+    let config = new MatDialogConfig();
+    config.width = "350px";
+
+    this.dialog.open(WanFullTopologyComponent, config);
   }
 
   addTaskForce() {
