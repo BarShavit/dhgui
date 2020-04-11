@@ -1,6 +1,5 @@
 import { LogicalChannel } from 'src/app/shared/models/common/logical-channel';
-import { TagamPhysicalChannel } from 'src/app/shared/models/tagam/physical-channel';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MyErrorStateMatcher } from 'src/app/shared/services/error-state-matcher';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +10,8 @@ import { WarningComponent } from '../warning/warning.component';
 @Component({
   selector: 'app-edit-logical-channel',
   templateUrl: './edit-logical-channel.component.html',
-  styleUrls: ['./edit-logical-channel.component.scss']
+  styleUrls: ['./edit-logical-channel.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditLogicalChannelComponent implements OnInit {
 

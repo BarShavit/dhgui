@@ -1,5 +1,5 @@
 import { WanService } from './../../services/wan.service';
-import { Component, OnInit, Inject, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, OnDestroy, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TaskForce } from 'src/app/shared/models/wan/task-force';
 import { MyErrorStateMatcher } from 'src/app/shared/services/error-state-matcher';
@@ -13,7 +13,8 @@ import { MatSelect } from '@angular/material/select';
 @Component({
   selector: 'app-taskforce-add-update',
   templateUrl: './taskforce-add-update.component.html',
-  styleUrls: ['./taskforce-add-update.component.scss']
+  styleUrls: ['./taskforce-add-update.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterViewInit {
 

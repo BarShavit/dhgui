@@ -1,7 +1,7 @@
 import { LogicalChannelResult } from './../../models/common/logical-channel-result';
 import { LogicalChannelPopupInit } from './../../models/common/logical-channel-init';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { LogicalChannel } from 'src/app/shared/models/common/logical-channel';
 import { ChannelState } from 'src/app/shared/models/common/channel-status';
 import { EditLogicalChannelComponent } from '../add-logical-channel/edit-logical-channel.component';
@@ -10,7 +10,8 @@ import { } from 'protractor';
 @Component({
   selector: 'app-logical-channels-view',
   templateUrl: './logical-channels-view.component.html',
-  styleUrls: ['./logical-channels-view.component.scss']
+  styleUrls: ['./logical-channels-view.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogicalChannelsViewComponent implements OnInit {
 

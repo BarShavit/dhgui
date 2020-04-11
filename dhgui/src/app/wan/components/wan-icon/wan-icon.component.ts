@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-wan-icon',
   templateUrl: './wan-icon.component.html',
-  styleUrls: ['./wan-icon.component.scss']
+  styleUrls: ['./wan-icon.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WanIconComponent implements OnInit {
 

@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-shkd-icon',
   templateUrl: './shkd-icon.component.html',
-  styleUrls: ['./shkd-icon.component.scss']
+  styleUrls: ['./shkd-icon.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShkdIconComponent implements OnInit {
 
