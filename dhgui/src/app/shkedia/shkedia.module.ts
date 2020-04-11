@@ -6,9 +6,11 @@ import { ShkdContentComponent } from './components/shkd-content/shkd-content.com
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { ShkdTopologyViewComponent } from './components/shkd-topology-view/shkd-topology-view.component';
+import { ShkdFullTopologyComponent } from './components/shkd-full-topology/shkd-full-topology.component';
+import { MemberChannelsFormatPipe } from './pipes/member-channels-format.pipe';
 
 @NgModule({
-  declarations: [ShkdComponent, ShkdIconComponent, ShkdContentComponent, ShkdTopologyViewComponent],
+  declarations: [ShkdComponent, ShkdIconComponent, ShkdContentComponent, ShkdTopologyViewComponent, ShkdFullTopologyComponent, MemberChannelsFormatPipe],
   imports: [
     CommonModule,
     SharedModule,

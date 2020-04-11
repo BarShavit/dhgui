@@ -1,0 +1,9 @@
+<app-popup-title [iconName]="'people_outline'" [title]="'טופלוגיית שקדייה'"></app-popup-title>
+
+<mat-list class="topology-container">
+    <mat-list-item *ngFor="let member of getDetailedTopology()">
+        <div mat-line>{{member.name}}</div>
+        <div mat-line>{{member | memberChannelsFormat}}</div>
+        <mat-icon>bluetooth_connected</mat-icon>
+    </mat-list-item>
+</mat-list>

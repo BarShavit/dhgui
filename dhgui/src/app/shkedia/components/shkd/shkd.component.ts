@@ -1,3 +1,4 @@
+import { ShkdFullTopologyComponent } from './../shkd-full-topology/shkd-full-topology.component';
 import { ShkdService } from './../../services/shkd.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -46,6 +47,14 @@ export class ShkdComponent implements OnInit {
 
       this.shkdService.changeShkediaStatus();
     });
+  }
+
+  fullTopology() {
+    let config = new MatDialogConfig();
+    config.data = null;
+    config.width = "350px";
+
+    this.dialog.open(ShkdFullTopologyComponent, config);
   }
 
   private getOnOffWarningMessage(): string {
