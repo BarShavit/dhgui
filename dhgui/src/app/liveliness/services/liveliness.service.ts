@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConstantsService } from 'src/app/shared/services/constants.service';
 import { SystemLiveliness } from 'src/app/shared/models/system-liveliness';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LivelinessService {
 
-  systemLiveliness: SystemLiveliness[] = [];
+  systemLiveliness$ = new BehaviorSubject<SystemLiveliness[]>([]);
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
     this.http.get<SystemLiveliness>(this.constants.getShobLiveliness)
@@ -22,9 +23,11 @@ export class LivelinessService {
   }
 
   private setNewLiveliness(liveliness: SystemLiveliness) {
-    this.systemLiveliness.push(liveliness);
-
+    let result = this.systemLiveliness$.value;
+    result.push(liveliness);
     // We sort to save the same liveliness order
-    this.systemLiveliness.sort((a, b) => a.systemName < b.systemName ? -1 : a.systemName > b.systemName ? 1 : 0)
+    result.sort((a, b) => a.systemName < b.systemName ? -1 : a.systemName > b.systemName ? 1 : 0);
+
+    this.systemLiveliness$.next(result);
   }
 }

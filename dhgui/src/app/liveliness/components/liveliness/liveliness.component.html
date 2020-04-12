@@ -1,6 +1,6 @@
 <div class="liveliness-container">
     <mat-grid-list cols="2" rowHeight="fit" class="liveliness-grid">
-        <mat-grid-tile *ngFor="let liveliness of livelinessService.systemLiveliness ; trackBy:trackByFunc">
+        <mat-grid-tile *ngFor="let liveliness of livelinessService.systemLiveliness$ | async ; trackBy:trackByFunc">
             <app-system-liveliness [systemLiveliness]="liveliness"></app-system-liveliness>
         </mat-grid-tile>
     </mat-grid-list>
