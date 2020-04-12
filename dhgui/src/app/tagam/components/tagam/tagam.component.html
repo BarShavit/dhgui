@@ -1,6 +1,6 @@
 <mat-card class="main-card">
     <mat-card-header class="title">
-        <mat-card-title class="single-title-card inline-block tagam-title" [class.disabled]="!tagamService.isActive">
+        <mat-card-title class="single-title-card inline-block tagam-title" [class.disabled]="!(tagamService.isActive$ | async)">
             תרג"מ
         </mat-card-title>
         <app-tagam-icon mat-card-avatar [color]="getIconColor()"></app-tagam-icon>

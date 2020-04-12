@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { LogicalChannelResult } from './../../shared/models/common/logical-channel-result';
 import { ConstantsService } from 'src/app/shared/services/constants.service';
 import { HttpClient } from '@angular/common/http';
@@ -9,16 +10,16 @@ import { TagamPhysicalChannel } from 'src/app/shared/models/tagam/physical-chann
 })
 export class TagamService {
 
-  channels: TagamPhysicalChannel[] = [];
-  isActive: boolean = true;
+  channels$ = new BehaviorSubject<TagamPhysicalChannel[]>([]);
+  isActive$ = new BehaviorSubject<boolean>(true);
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
     this.http.get(this.constants.getTagamChannels).toPromise().then(data => {
-      this.channels = <TagamPhysicalChannel[]>data;
+      this.channels$.next(<TagamPhysicalChannel[]>data);
     });
 
     this.http.get<boolean>(this.constants.getIsTagamActive).toPromise().then(data => {
-      this.isActive = data;
+      this.isActive$.next(data);
     });
   }
 
@@ -45,8 +46,8 @@ export class TagamService {
   }
 
   changeTagamStatus() {
-    this.isActive = !this.isActive;
-    console.log(`Changed tagam status to ${this.isActive}`);
+    this.isActive$.next(!this.isActive$.value);
+    console.log(`Changed tagam status to ${this.isActive$}`);
     //TODO:HTTP
   }
 }

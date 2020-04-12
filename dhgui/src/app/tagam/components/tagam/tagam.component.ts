@@ -1,24 +1,24 @@
 import { TagamService } from './../../services/tagam.service';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { WarningComponent } from 'src/app/shared/components/warning/warning.component';
 
 @Component({
   selector: 'app-tagam',
   templateUrl: './tagam.component.html',
-  styleUrls: ['./tagam.component.scss']
+  styleUrls: ['./tagam.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TagamComponent implements OnInit {
 
   constructor(public tagamService: TagamService,
-    private dialog: MatDialog,
-    private cdr: ChangeDetectorRef) { }
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   getOnOffMenuTitle(): string {
-    if (this.tagamService.isActive) {
+    if (this.tagamService.isActive$) {
       return "כיבוי תווך";
     }
 
@@ -26,7 +26,7 @@ export class TagamComponent implements OnInit {
   }
 
   getOnOffMenuIcon(): string {
-    if (this.tagamService.isActive) {
+    if (this.tagamService.isActive$.value) {
       return "airplanemode_active";
     }
 
@@ -35,7 +35,7 @@ export class TagamComponent implements OnInit {
 
 
   private getOnOffWarningMessage(): string {
-    if (this.tagamService.isActive) {
+    if (this.tagamService.isActive$.value) {
       return "האם ברצונך לכבות את התווך?";
     }
 
@@ -55,12 +55,11 @@ export class TagamComponent implements OnInit {
       }
 
       this.tagamService.changeTagamStatus();
-      this.cdr.detectChanges();
     });
   }
 
   getIconColor(): string {
-    if (this.tagamService.isActive) {
+    if (this.tagamService.isActive$.value) {
       return "#03a9f4";
     }
 

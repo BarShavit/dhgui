@@ -1,13 +1,14 @@
 import { LogicalChannelResult } from './../../../shared/models/common/logical-channel-result';
 import { TagamPhysicalChannel } from 'src/app/shared/models/tagam/physical-channel';
 import { TagamService } from './../../services/tagam.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ChannelState } from 'src/app/shared/models/common/channel-status';
 
 @Component({
   selector: 'app-tagam-content',
   templateUrl: './tagam-content.component.html',
-  styleUrls: ['./tagam-content.component.scss']
+  styleUrls: ['./tagam-content.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TagamContentComponent implements OnInit {
 
