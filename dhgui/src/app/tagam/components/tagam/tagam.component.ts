@@ -1,5 +1,5 @@
 import { TagamService } from './../../services/tagam.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { WarningComponent } from 'src/app/shared/components/warning/warning.component';
 
@@ -11,7 +11,8 @@ import { WarningComponent } from 'src/app/shared/components/warning/warning.comp
 export class TagamComponent implements OnInit {
 
   constructor(public tagamService: TagamService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -54,6 +55,7 @@ export class TagamComponent implements OnInit {
       }
 
       this.tagamService.changeTagamStatus();
+      this.cdr.detectChanges();
     });
   }
 

@@ -1,6 +1,6 @@
 import { WanFullTopologyComponent } from './../wan-full-topology/wan-full-topology.component';
 import { WanService } from './../../services/wan.service';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ChangeDetectorRef } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { WarningComponent } from 'src/app/shared/components/warning/warning.component';
 import { TaskforceAddUpdateComponent } from '../taskforce-add-update/taskforce-add-update.component';
@@ -22,7 +22,8 @@ export class WanComponent implements OnInit {
   onOffMenuTitle: string = "";
 
   constructor(public wanService: WanService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -71,6 +72,7 @@ export class WanComponent implements OnInit {
       }
 
       this.wanService.changeWanStatus();
+      this.cdr.detectChanges();
     });
   }
 

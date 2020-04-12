@@ -1,6 +1,6 @@
 import { ShkdFullTopologyComponent } from './../shkd-full-topology/shkd-full-topology.component';
 import { ShkdService } from './../../services/shkd.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { WarningComponent } from 'src/app/shared/components/warning/warning.component';
 
@@ -12,7 +12,8 @@ import { WarningComponent } from 'src/app/shared/components/warning/warning.comp
 export class ShkdComponent implements OnInit {
 
   constructor(public shkdService: ShkdService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -46,6 +47,7 @@ export class ShkdComponent implements OnInit {
       }
 
       this.shkdService.changeShkediaStatus();
+      this.cdr.detectChanges();
     });
   }
 
