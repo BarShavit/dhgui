@@ -12,5 +12,6 @@
 </div>
 
 <div class="topology-container">
-    <app-wan-members-view [members]="wanService.topology | topologyNameFilter:filterText"></app-wan-members-view>
+    <app-wan-members-view [members]="wanService.topology$ | async | topologyNameFilter:filterText">
+    </app-wan-members-view>
 </div>

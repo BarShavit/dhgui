@@ -47,7 +47,7 @@ export class TagamService {
 
   changeTagamStatus() {
     this.isActive$.next(!this.isActive$.value);
-    console.log(`Changed tagam status to ${this.isActive$}`);
+    console.log(`Changed tagam status to ${this.isActive$.value}`);
     //TODO:HTTP
   }
 }

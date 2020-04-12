@@ -13,7 +13,11 @@ export class TopologyFilterPipe implements PipeTransform {
    * 2. The member is offline, but last seen in the last hour
    * @param value Filtered wan topology
    */
-  transform(value: WanMember[]): WanMember[] {
+  transform(value: WanMember[] | null): WanMember[] {
+    if (value == null) {
+      return [];
+    }
+
     return value.filter(member => {
       return member.isConnected ||
         moment().subtract(1, "hour").isBefore(moment(member.lastSeen));

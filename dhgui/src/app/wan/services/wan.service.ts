@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConstantsService } from 'src/app/shared/services/constants.service';
@@ -10,9 +11,9 @@ import * as moment from 'moment';
 })
 export class WanService {
 
-  topology: WanMember[] = [];
-  forces: TaskForce[] = [];
-  isActive: boolean = true;
+  topology$ = new BehaviorSubject<WanMember[]>([]);
+  forces$ = new BehaviorSubject<TaskForce[]>([]);
+  isActive$ = new BehaviorSubject<boolean>(true);
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
     this.http.get<WanMember[]>(this.constants.getTopology).toPromise().then(data => {
@@ -24,15 +25,15 @@ export class WanService {
         moshe.lastSeen = moment().subtract(5, "minutes").toDate();
       }
 
-      this.topology = data;
+      this.topology$.next(data);
     });
 
     this.http.get<TaskForce[]>(this.constants.getTaskForces).toPromise().then(data => {
-      this.forces = data;
+      this.forces$.next(data);
     });
 
     this.http.get<boolean>(this.constants.getIsWanActive).toPromise().then(data => {
-      this.isActive = data;
+      this.isActive$.next(data);
     });
   }
 
@@ -61,8 +62,8 @@ export class WanService {
   }
 
   changeWanStatus() {
-    this.isActive = !this.isActive;
-    console.log(`Changed wan status to ${this.isActive}`);
+    this.isActive$.next(!this.isActive$.value);
+    console.log(`Changed wan status to ${this.isActive$.value}`);
     //TODO:HTTP
   }
 }

@@ -6,8 +6,12 @@ import { WanMember } from 'src/app/shared/models/wan/member';
 })
 export class TopologyNameFilterPipe implements PipeTransform {
 
-  transform(value: WanMember[], filter: string): WanMember[] {
+  transform(value: WanMember[] | null, filter: string): WanMember[] {
+    if (value == null) {
+      return [];
+    }
+    
     return value.filter(member => member.name.includes(filter));
   }
-  
+
 }

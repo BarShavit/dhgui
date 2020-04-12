@@ -1,5 +1,5 @@
 import { TaskforceAddUpdateComponent } from './../taskforce-add-update/taskforce-add-update.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { WanService } from '../../services/wan.service';
 import { TaskForce } from 'src/app/shared/models/wan/task-force';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -9,7 +9,8 @@ import { WarningComponent } from 'src/app/shared/components/warning/warning.comp
 @Component({
   selector: 'app-task-forces',
   templateUrl: './task-forces.component.html',
-  styleUrls: ['./task-forces.component.scss']
+  styleUrls: ['./task-forces.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskForcesComponent implements OnInit {
 

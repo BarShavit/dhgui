@@ -1,6 +1,6 @@
 import { WanFullTopologyComponent } from './../wan-full-topology/wan-full-topology.component';
 import { WanService } from './../../services/wan.service';
-import { Component, OnInit, HostListener, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { WarningComponent } from 'src/app/shared/components/warning/warning.component';
 import { TaskforceAddUpdateComponent } from '../taskforce-add-update/taskforce-add-update.component';
@@ -13,7 +13,8 @@ export enum KEY_CODE {
 @Component({
   selector: 'app-wan',
   templateUrl: './wan.component.html',
-  styleUrls: ['./wan.component.scss']
+  styleUrls: ['./wan.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WanComponent implements OnInit {
 
@@ -22,14 +23,13 @@ export class WanComponent implements OnInit {
   onOffMenuTitle: string = "";
 
   constructor(public wanService: WanService,
-    private dialog: MatDialog,
-    private cdr: ChangeDetectorRef) { }
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   getOnOffMenuIcon(): string {
-    if (this.wanService.isActive) {
+    if (this.wanService.isActive$.value) {
       return "airplanemode_active";
     }
 
@@ -37,7 +37,7 @@ export class WanComponent implements OnInit {
   }
 
   getOnOffMenuTitle(): string {
-    if (this.wanService.isActive) {
+    if (this.wanService.isActive$.value) {
       return "כיבוי תווך";
     }
 
@@ -72,12 +72,11 @@ export class WanComponent implements OnInit {
       }
 
       this.wanService.changeWanStatus();
-      this.cdr.detectChanges();
     });
   }
 
   private getOnOffWarningMessage(): string {
-    if (this.wanService.isActive) {
+    if (this.wanService.isActive$.value) {
       return "האם ברצונך לכבות את התווך?";
     }
 
@@ -85,7 +84,7 @@ export class WanComponent implements OnInit {
   }
 
   getIconColor(): string {
-    if (this.wanService.isActive) {
+    if (this.wanService.isActive$.value) {
       return "#03a9f4";
     }
 

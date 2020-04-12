@@ -1,6 +1,6 @@
 <mat-card class="main-card">
     <mat-card-header class="wan-card-header">
-        <mat-card-title class="single-title-card inline-block wan-title" [class.disabled]="!wanService.isActive">
+        <mat-card-title class="single-title-card inline-block wan-title" [class.disabled]="!(wanService.isActive$ | async)">
             WAN</mat-card-title>
         <app-wan-icon mat-card-avatar [color]="getIconColor()"></app-wan-icon>
         <mat-card-title class="more-info inline-block">

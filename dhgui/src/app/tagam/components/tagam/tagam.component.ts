@@ -18,7 +18,7 @@ export class TagamComponent implements OnInit {
   }
 
   getOnOffMenuTitle(): string {
-    if (this.tagamService.isActive$) {
+    if (this.tagamService.isActive$.value) {
       return "כיבוי תווך";
     }
 
