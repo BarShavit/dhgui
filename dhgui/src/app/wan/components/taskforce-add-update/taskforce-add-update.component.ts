@@ -151,4 +151,8 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
 
     this.dialogRef.close(true);
   }
+
+  trackByFunc(_: number, value: WanMember) {
+    return value.id;
+  }
 }

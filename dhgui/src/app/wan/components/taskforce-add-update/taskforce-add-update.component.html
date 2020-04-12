@@ -11,7 +11,7 @@
     <mat-form-field>
         <mat-select [formControl]="form.controls['platforms']" placeholder="בחר חברי כוח משימה" [multiple]="true" #multiSelect>
             <ngx-mat-select-search [formControl]="form.controls['filter-platforms']"></ngx-mat-select-search>
-            <mat-option *ngFor="let member of filteredPlatform | async" [value]="member">
+            <mat-option *ngFor="let member of filteredPlatform | async ; trackBy:trackByFunc" [value]="member">
                 {{member.name}}
             </mat-option>
         </mat-select>
@@ -21,7 +21,7 @@
     </mat-form-field>
 
     <div class="members">
-        <div *ngFor="let member of form.controls['platforms'].value">
+        <div *ngFor="let member of form.controls['platforms'].value ; trackBy:trackByFunc">
             <mat-icon class="member-icon">person</mat-icon>
             <span class="member-text">{{member.name}}</span>
         </div>

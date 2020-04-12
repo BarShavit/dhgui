@@ -66,4 +66,8 @@ export class TaskForcesComponent implements OnInit {
       this.wanService.deleteTaskForce(force);
     });
   }
+
+  trackByFunc(_: number, value: TaskForce) {
+    return value.id;
+  }
 }

@@ -4,7 +4,7 @@
         <app-wl-icon mat-card-avatar></app-wl-icon>
     </mat-card-header>
     <mat-card-content class="content">
-        <div *ngFor="let channel of wlService.channels" class="channel" [class.available]="channel.status==0" [class.strict]="channel.status==1" [class.failure]="channel.status==2">
+        <div *ngFor="let channel of wlService.channels ; trackBy:trackByFunc" class="channel" [class.available]="channel.status==0" [class.strict]="channel.status==1" [class.failure]="channel.status==2">
             {{channel.name}}
         </div>
     </mat-card-content>

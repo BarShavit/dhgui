@@ -19,4 +19,8 @@ export class WanMembersViewComponent implements OnInit {
   lastSeen(member: WanMember) {
     return moment(member.lastSeen).format("DD/MM/YYYY HH:mm:ss");
   }
+
+  trackByFunc(_: number, value: WanMember) {
+    return value.id;
+  }
 }

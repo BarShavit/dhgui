@@ -12,7 +12,7 @@
 </div>
 
 <mat-list class="topology-container">
-    <mat-list-item *ngFor="let member of getDetailedTopology() | memberNameFilter:filterText">
+    <mat-list-item *ngFor="let member of shkdService.detailedTopology | memberNameFilter:filterText ; trackBy: trackByFunc">
         <div mat-line>{{member.name}}</div>
         <div mat-line>{{member | memberChannelsFormat}}</div>
         <mat-icon>bluetooth_connected</mat-icon>

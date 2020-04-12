@@ -1,3 +1,4 @@
+import { WLChannel } from 'src/app/shared/models/wl/wl-channel';
 import { Component, OnInit } from '@angular/core';
 import { WlService } from '../../services/wl.service';
 
@@ -13,4 +14,7 @@ export class WlComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  trackByFunc(_: number, value: WLChannel) {
+    return value.name;
+  }
 }

@@ -1,5 +1,5 @@
 <mat-list class="topology-container">
-    <mat-list-item *ngFor="let member of members" [class.connected]="member.isConnected" [class.disconnected]="!member.isConnected">
+    <mat-list-item *ngFor="let member of members ; trackBy:trackByFunc" [class.connected]="member.isConnected" [class.disconnected]="!member.isConnected">
         <div mat-line>{{member.name}}</div>
         <div mat-line *ngIf="!member.isConnected" class="last-seen">נראה לאחרונה: {{lastSeen(member)}}</div>
         <mat-icon *ngIf="member.isConnected">bluetooth_connected</mat-icon>

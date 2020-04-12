@@ -1,3 +1,4 @@
+import { SystemLiveliness } from 'src/app/shared/models/system-liveliness';
 import { Component, OnInit } from '@angular/core';
 import { LivelinessService } from '../../services/liveliness.service';
 
@@ -8,9 +9,12 @@ import { LivelinessService } from '../../services/liveliness.service';
 })
 export class LivelinessComponent implements OnInit {
 
-  constructor(public livelinessService : LivelinessService) { }
+  constructor(public livelinessService: LivelinessService) { }
 
   ngOnInit(): void {
   }
 
+  trackByFunc(_: number, value: SystemLiveliness) {
+    return value.systemName;
+  }
 }

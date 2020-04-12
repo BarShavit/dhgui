@@ -1,5 +1,5 @@
 <div class="force-container">
-    <div *ngFor="let force of wanService.forces" class="force">
+    <div *ngFor="let force of wanService.forces ; trackBy:trackByFunc" class="force">
         <mat-icon class="force-icon clickable" (click)="viewTaskForce(force)">people_outline</mat-icon>
         <span class="force-name clickable" (click)="viewTaskForce(force)">{{force.name}}</span>
         <div class="more-info">

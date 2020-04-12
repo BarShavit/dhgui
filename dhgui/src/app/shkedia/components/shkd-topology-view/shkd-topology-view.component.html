@@ -1,7 +1,7 @@
 <app-popup-title [iconName]="'people_outline'" [title]="title"></app-popup-title>
 
 <mat-list class="topology-container">
-    <mat-list-item *ngFor="let member of channel.topology">
+    <mat-list-item *ngFor="let member of channel.topology ; trackBy:trackByFunc">
         <div mat-line>{{member.name}}</div>
         <mat-icon>bluetooth_connected</mat-icon>
     </mat-list-item>

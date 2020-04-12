@@ -1,5 +1,5 @@
 <div class="channel-container">
-    <div *ngFor="let ch of channels" class="channel channel-hover" [class.available]="ch.status==0" [class.strict]="ch.status==1" [class.failure]="state==3" matTooltip="עריכת / מחיקת ערוץ לוגי" (click)="editLogicalChannel(ch)">
+    <div *ngFor="let ch of channels ; trackBy:trackByFunc" class="channel channel-hover" [class.available]="ch.status==0" [class.strict]="ch.status==1" [class.failure]="state==3" matTooltip="עריכת / מחיקת ערוץ לוגי" (click)="editLogicalChannel(ch)">
         {{ch.name}}
     </div>
 

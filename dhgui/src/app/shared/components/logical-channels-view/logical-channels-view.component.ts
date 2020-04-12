@@ -62,4 +62,8 @@ export class LogicalChannelsViewComponent implements OnInit {
       this.editChannel.emit(data);
     });
   }
+
+  trackByFunc(_: number, value: LogicalChannel) {
+    return value.name;
+  }
 }

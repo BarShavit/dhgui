@@ -1,6 +1,7 @@
 import { ShkediaChannel } from './../../../shared/models/shkd/shkedia-channel';
 import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ShkediaMember } from 'src/app/shared/models/shkd/shkd-member';
 
 @Component({
   selector: 'app-shkd-topology-view',
@@ -21,4 +22,7 @@ export class ShkdTopologyViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  trackByFunc(_: number, value: ShkediaMember) {
+    return value.id;
+  }
 }
