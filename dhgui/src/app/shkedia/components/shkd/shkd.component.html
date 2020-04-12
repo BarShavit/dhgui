@@ -1,6 +1,7 @@
 <mat-card class="main-card">
     <mat-card-header class="title">
-        <mat-card-title class="single-title-card inline-block shkd-title" [class.disabled]="!shkdService.isActive">עצים מוזרים
+        <mat-card-title class="single-title-card inline-block shkd-title" [class.disabled]="!(shkdService.isActive$ | async)">
+            עצים מוזרים
         </mat-card-title>
         <app-shkd-icon mat-card-avatar [color]="getIconColor()"></app-shkd-icon>
         <mat-card-title class="more-info inline-block">

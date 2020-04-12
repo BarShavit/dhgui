@@ -4,24 +4,25 @@ import { Injectable } from '@angular/core';
 import { ShkediaChannel } from 'src/app/shared/models/shkd/shkedia-channel';
 import { ConstantsService } from 'src/app/shared/services/constants.service';
 import { LogicalChannelResult } from 'src/app/shared/models/common/logical-channel-result';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShkdService {
 
-  channels: ShkediaChannel[] = [];
-  detailedTopology: DetailedShkdMember[] = [];
-  isActive: boolean = true;
+  channels$ = new BehaviorSubject<ShkediaChannel[]>([]);
+  detailedTopology$ = new BehaviorSubject<DetailedShkdMember[]>([]);
+  isActive$ = new BehaviorSubject<boolean>(true);
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
     this.http.get(this.constants.getShkediaChannels).toPromise().then(data => {
-      this.channels = <ShkediaChannel[]>data;
-      this.detailedTopology = this.getDetailedTopology();
+      this.channels$.next(<ShkediaChannel[]>data);
+      this.detailedTopology$.next(this.getDetailedTopology());
     });
 
     this.http.get<boolean>(this.constants.getIsShkdActive).toPromise().then(data => {
-      this.isActive = data;
+      this.isActive$.next(data);
     });
   }
 
@@ -38,14 +39,14 @@ export class ShkdService {
 
     // Run with for and not foreach to save the channel order
     // without needing of sort
-    for (let i = 0; i < this.channels.length; i++) {
-      this.channels[i].topology.forEach(member => {
+    for (let i = 0; i < this.channels$.value.length; i++) {
+      this.channels$.value[i].topology.forEach(member => {
         if (!result.has(member.id)) {
           result.set(member.id, new DetailedShkdMember(member.id, member.name));
         }
 
         result.get(member.id)?.connectedChannels.push(
-          this.channels[i].channelId);
+          this.channels$.value[i].channelId);
       });
     }
 
@@ -75,8 +76,8 @@ export class ShkdService {
   }
 
   changeShkediaStatus() {
-    this.isActive = !this.isActive;
-    console.log(`Changed wan status to ${this.isActive}`);
+    this.isActive$.next(!this.isActive$.value);
+    console.log(`Changed wan status to ${this.isActive$.value}`);
     //TODO:HTTP
   }
 }

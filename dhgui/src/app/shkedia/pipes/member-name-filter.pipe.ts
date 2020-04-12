@@ -6,7 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MemberNameFilterPipe implements PipeTransform {
 
-  transform(value: DetailedShkdMember[], filter: string): DetailedShkdMember[] {
+  transform(value: DetailedShkdMember[] | null, filter: string): DetailedShkdMember[] {
+    if (value == null) {
+      return [];
+    }
+    
     return value.filter(member => member.name.includes(filter));
   }
 

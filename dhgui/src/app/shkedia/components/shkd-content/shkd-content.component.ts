@@ -1,6 +1,6 @@
 import { ShkediaChannel } from './../../../shared/models/shkd/shkedia-channel';
 import { ShkdService } from './../../services/shkd.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ChannelState } from 'src/app/shared/models/common/channel-status';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ShkdTopologyViewComponent } from '../shkd-topology-view/shkd-topology-view.component';
@@ -9,7 +9,8 @@ import { LogicalChannelResult } from 'src/app/shared/models/common/logical-chann
 @Component({
   selector: 'app-shkd-content',
   templateUrl: './shkd-content.component.html',
-  styleUrls: ['./shkd-content.component.scss']
+  styleUrls: ['./shkd-content.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShkdContentComponent implements OnInit {
 

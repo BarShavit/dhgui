@@ -1,25 +1,25 @@
 import { ShkdFullTopologyComponent } from './../shkd-full-topology/shkd-full-topology.component';
 import { ShkdService } from './../../services/shkd.service';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { WarningComponent } from 'src/app/shared/components/warning/warning.component';
 
 @Component({
   selector: 'app-shkd',
   templateUrl: './shkd.component.html',
-  styleUrls: ['./shkd.component.scss']
+  styleUrls: ['./shkd.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShkdComponent implements OnInit {
 
   constructor(public shkdService: ShkdService,
-    private dialog: MatDialog,
-    private cdr: ChangeDetectorRef) { }
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   getOnOffMenuIcon(): string {
-    if (this.shkdService.isActive) {
+    if (this.shkdService.isActive$.value) {
       return "airplanemode_active";
     }
 
@@ -27,7 +27,7 @@ export class ShkdComponent implements OnInit {
   }
 
   getOnOffMenuTitle(): string {
-    if (this.shkdService.isActive) {
+    if (this.shkdService.isActive$.value) {
       return "כיבוי תווך";
     }
 
@@ -47,7 +47,6 @@ export class ShkdComponent implements OnInit {
       }
 
       this.shkdService.changeShkediaStatus();
-      this.cdr.detectChanges();
     });
   }
 
@@ -60,7 +59,7 @@ export class ShkdComponent implements OnInit {
   }
 
   private getOnOffWarningMessage(): string {
-    if (this.shkdService.isActive) {
+    if (this.shkdService.isActive$) {
       return "האם ברצונך לכבות את התווך?";
     }
 
@@ -68,7 +67,7 @@ export class ShkdComponent implements OnInit {
   }
 
   getIconColor(): string {
-    if (this.shkdService.isActive) {
+    if (this.shkdService.isActive$.value) {
       return "#03a9f4";
     }
 
