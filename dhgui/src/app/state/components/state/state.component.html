@@ -11,13 +11,13 @@
                     {{timeService.getDateString()}}
                 </td>
             </tr>
-            <tr *ngIf="version != null">
+            <tr *ngIf="(stateService.version$ | async) != null">
                 <td>גרסה:</td>
-                <td>{{version.version}}</td>
+                <td>{{(stateService.version$ | async)?.version}}</td>
             </tr>
-            <tr *ngIf="platform != null">
+            <tr *ngIf="(platformService.currentPlatform$ | async) != null">
                 <td>פלטפורמה:</td>
-                <td>{{platform.name}}</td>
+                <td>{{(platformService.currentPlatform$ | async)?.name}}</td>
             </tr>
         </table>
     </mat-card-content>

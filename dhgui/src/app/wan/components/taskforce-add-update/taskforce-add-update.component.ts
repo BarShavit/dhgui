@@ -49,8 +49,8 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
     }, {});
   }
 
-  async ngOnInit() {
-    await this.fillAllMembers();
+  ngOnInit() {
+    this.fillAllMembers();
     this.form.controls["name"].setValue(this.force.name);
 
     // put the current task force members as default for updates
@@ -80,9 +80,9 @@ export class TaskforceAddUpdateComponent implements OnInit, OnDestroy, AfterView
       });
   }
 
-  private async fillAllMembers() {
-    let currentPlatform = await this.platformService.getMyPlatform();
-    let allPlatform = await this.platformService.getPlatforms();
+  private fillAllMembers() {
+    let currentPlatform = this.platformService.currentPlatform$.getValue();
+    let allPlatform = this.platformService.platforms$.getValue();
 
     if (allPlatform == null || currentPlatform == null) {
       return;
