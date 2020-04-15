@@ -1,6 +1,7 @@
 [{
         "computerName": "מחשב על",
-        "channel": 1,
+        "channelId": 1,
+        "type": "סרטן 8090",
         "status": 0,
         "ip": "192.168.180.1",
         "logicalChannels": [{
@@ -10,7 +11,8 @@
     },
     {
         "computerName": "מחשב על",
-        "channel": 2,
+        "channelId": 2,
+        "type": "סרטן 0782",
         "status": 1,
         "ip": "192.168.180.1",
         "logicalChannels": [{
@@ -25,8 +27,9 @@
     },
     {
         "computerName": "מחשב בלאי",
-        "channel": 1,
+        "channelId": 1,
         "status": 2,
+        "type": "סרטן 1977",
         "ip": "192.168.180.2",
         "logicalChannels": [{
             "name": "d",
@@ -35,8 +38,9 @@
     },
     {
         "computerName": "מחשב בלאי",
-        "channel": 2,
+        "channelId": 2,
         "status": 3,
+        "type": "סרטן 6721",
         "ip": "192.168.180.2",
         "logicalChannels": [{
             "name": "e",
