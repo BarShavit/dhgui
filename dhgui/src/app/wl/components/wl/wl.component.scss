@@ -19,7 +19,6 @@
     height: calc(100% - 64px);
     text-align: center;
     padding-top: 5%;
-    display: grid;
     margin-right: -10% !important;
 }
 
@@ -31,6 +30,10 @@
     line-height: 35px;
     text-align: center;
     margin: auto;
+}
+
+.channel-container {
+    margin-top: 20px;
 }
 
 .available {
