@@ -1,0 +1,16 @@
+<app-popup-title [iconName]="'edit'" [title]="title"></app-popup-title>
+
+<div class="select-container">
+    <mat-form-field>
+        <mat-label>בחר סוג ערוץ</mat-label>
+        <mat-select [(value)]="selectedType">
+            <mat-option *ngFor="let type of tagamService.types$ | async" [value]="type">{{type}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="save-button">
+    <button mat-button (click)="updateChannel()" [disabled]="selectedType == channel.type" color="primary">
+        עדכן
+    </button>
+</div>

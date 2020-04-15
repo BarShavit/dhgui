@@ -1,8 +1,10 @@
+import { ChangeTypeComponent } from './../change-type/change-type.component';
 import { LogicalChannelResult } from './../../../shared/models/common/logical-channel-result';
 import { TagamPhysicalChannel } from 'src/app/shared/models/tagam/physical-channel';
 import { TagamService } from './../../services/tagam.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ChannelState } from 'src/app/shared/models/common/channel-status';
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tagam-content',
@@ -15,7 +17,8 @@ export class TagamContentComponent implements OnInit {
   displayChannelManagement = new Map<string, boolean>();
   displayedColumns: string[] = ['computerName', 'channel', 'type', 'logicalChannels', 'status'];
 
-  constructor(public tagamService: TagamService) { }
+  constructor(public tagamService: TagamService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -70,5 +73,13 @@ export class TagamContentComponent implements OnInit {
     } else {
       this.tagamService.editLogicalChannel(channel, logicalChannelResult);
     }
+  }
+
+  changeType(channel: TagamPhysicalChannel) {
+    let config = new MatDialogConfig();
+    config.data = channel;
+    config.width = "350px";
+
+    this.dialog.open(ChangeTypeComponent, config);
   }
 }

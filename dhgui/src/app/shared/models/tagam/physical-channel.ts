@@ -3,7 +3,7 @@ import { ChannelState } from '../common/channel-status';
 
 export class TagamPhysicalChannel {
     computerName: string;
-    channel: number;
+    channelId: number;
     type: string;
     logicalChannels: LogicalChannel[];
     status: ChannelState;
@@ -11,7 +11,7 @@ export class TagamPhysicalChannel {
 
     constructor() {
         this.computerName = "";
-        this.channel = 0;
+        this.channelId = 0;
         this.type = "";
         this.ip = "";
         this.logicalChannels = [];

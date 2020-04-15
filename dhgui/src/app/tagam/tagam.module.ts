@@ -5,9 +5,10 @@ import { TagamIconComponent } from './components/tagam-icon/tagam-icon.component
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { TagamContentComponent } from './components/tagam-content/tagam-content.component';
+import { ChangeTypeComponent } from './components/change-type/change-type.component';
 
 @NgModule({
-  declarations: [TagamComponent, TagamIconComponent, TagamContentComponent],
+  declarations: [TagamComponent, TagamIconComponent, TagamContentComponent, ChangeTypeComponent],
   imports: [
     CommonModule,
     SharedModule,

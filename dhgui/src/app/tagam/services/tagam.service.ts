@@ -12,6 +12,7 @@ export class TagamService {
 
   channels$ = new BehaviorSubject<TagamPhysicalChannel[]>([]);
   isActive$ = new BehaviorSubject<boolean>(true);
+  types$ = new BehaviorSubject<string[]>([]);
 
   constructor(private http: HttpClient, private constants: ConstantsService) {
     this.http.get(this.constants.getTagamChannels).toPromise().then(data => {
@@ -21,11 +22,15 @@ export class TagamService {
     this.http.get<boolean>(this.constants.getIsTagamActive).toPromise().then(data => {
       this.isActive$.next(data);
     });
+
+    this.http.get<string[]>(this.constants.getTagamAvailableTypes).toPromise().then(data => {
+      this.types$.next(data);
+    });
   }
 
   addLogicalChannel(channel: TagamPhysicalChannel, result: LogicalChannelResult) {
     console.log(`Adding channel ${result.logicalChannelName} with state ${result.state}
-    to physical channel ${channel.computerName}-${channel.channel}`);
+    to physical channel ${channel.computerName}-${channel.channelId}`);
 
     //TODO:HTTP
   }
@@ -33,14 +38,14 @@ export class TagamService {
   editLogicalChannel(channel: TagamPhysicalChannel, result: LogicalChannelResult) {
     console.log(`Editing channel ${result.sourceLogicalChannelName} to channel
     ${result.logicalChannelName} with state ${result.state}
-    of physical channel ${channel.computerName}-${channel.channel}`);
+    of physical channel ${channel.computerName}-${channel.channelId}`);
 
     //TODO:HTTP
   }
 
   deleteLogicalChannel(channel: TagamPhysicalChannel, result: LogicalChannelResult) {
     console.log(`Deleting channel ${result.logicalChannelName}
-    of physical channel ${channel.computerName}-${channel.channel}`);
+    of physical channel ${channel.computerName}-${channel.channelId}`);
 
     //TODO:HTTP
   }
@@ -48,6 +53,11 @@ export class TagamService {
   changeTagamStatus() {
     this.isActive$.next(!this.isActive$.value);
     console.log(`Changed tagam status to ${this.isActive$.value}`);
+    //TODO:HTTP
+  }
+
+  changeChannelType(channel: TagamPhysicalChannel, newType: string) {
+    console.log(`Changed channel ${channel.computerName} - ${channel.channelId} to type ${newType}`);
     //TODO:HTTP
   }
 }

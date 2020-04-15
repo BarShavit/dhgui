@@ -18,7 +18,7 @@
         </ng-container>
         <ng-container matColumnDef="type">
             <th mat-header-cell *matHeaderCellDef> סוג </th>
-            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            <td mat-cell *matCellDef="let element" class="clickable" (click)="changeType(element)" matTooltip="שנה סוג ערוץ" matTooltipClass="tooltip"> {{element.type}} </td>
         </ng-container>
         <ng-container matColumnDef="logicalChannels">
             <th mat-header-cell *matHeaderCellDef> ערוצים לוגיים </th>

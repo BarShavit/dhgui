@@ -44,6 +44,7 @@ export class ConstantsService {
   tagamAddress = "/assets";
   getTagamChannels = this.tagamAddress + "/tagam-channels.json";
   getIsTagamActive = this.tagamAddress + "/tagam-status.json";
+  getTagamAvailableTypes = this.tagamAddress + "/tagam-types.json";
 
   /* Shkedia */
   shkediaAddress = "/assets";
