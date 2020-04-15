@@ -16,6 +16,10 @@
             <th mat-header-cell *matHeaderCellDef> מס' ערוץ </th>
             <td mat-cell *matCellDef="let element"> {{element.channel}} </td>
         </ng-container>
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> סוג </th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
         <ng-container matColumnDef="logicalChannels">
             <th mat-header-cell *matHeaderCellDef> ערוצים לוגיים </th>
             <td mat-cell *matCellDef="let element" class="channels-column" (mouseenter)="mouseOverChannels(element.computerName, element.channel)" (mouseleave)="mouseLeftChannels(element.computerName, element.channel)">

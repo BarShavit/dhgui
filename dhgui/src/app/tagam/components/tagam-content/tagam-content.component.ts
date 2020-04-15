@@ -13,7 +13,7 @@ import { ChannelState } from 'src/app/shared/models/common/channel-status';
 export class TagamContentComponent implements OnInit {
 
   displayChannelManagement = new Map<string, boolean>();
-  displayedColumns: string[] = ['computerName', 'channel', 'logicalChannels', 'status'];
+  displayedColumns: string[] = ['computerName', 'channel', 'type', 'logicalChannels', 'status'];
 
   constructor(public tagamService: TagamService) { }
 
