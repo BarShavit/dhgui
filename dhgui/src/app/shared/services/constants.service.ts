@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConstantsService {
+  /* SVG */
+  svgFolder = "/assets/svgs";
+
   /* SystemInformation */
   systemInfomationAddress = "/assets";
   getVersion = this.systemInfomationAddress + "/version.json"

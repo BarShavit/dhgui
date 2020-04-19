@@ -1,4 +1,3 @@
-import { Platform } from './../../../shared/models/platform';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { StateService } from '../../services/state.service';
 import { PlatformService } from 'src/app/shared/services/platform.service';

@@ -1,3 +1,4 @@
+import { ConstantsService } from 'src/app/shared/services/constants.service';
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -9,8 +10,11 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 export class TagamIconComponent implements OnInit {
 
   @Input() color: string = "#03a9f4";
+  svgPath: string;
 
-  constructor() { }
+  constructor(private constants: ConstantsService) {
+    this.svgPath = this.constants.svgFolder + "/tagam.svg";
+  }
 
   ngOnInit(): void {
   }

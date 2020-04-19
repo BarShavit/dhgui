@@ -32,3 +32,8 @@
 .mat-card-header-text {
     width: 100% !important;
 }
+
+// Make the card header text closer to the icon
+::ng-deep .mat-card-header-text {
+    margin-right: 5px !important;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ConstantsService } from 'src/app/shared/services/constants.service';
 
 @Component({
   selector: 'app-ship-svg',
@@ -8,7 +9,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ShipSVGComponent implements OnInit {
 
-  constructor() { }
+  svgPath: string;
+
+  constructor(private constants: ConstantsService) {
+    this.svgPath = this.constants.svgFolder + "/logo.svg";
+  }
 
   ngOnInit(): void {
   }

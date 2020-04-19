@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ConstantsService } from 'src/app/shared/services/constants.service';
 
 @Component({
   selector: 'app-wan-icon',
@@ -9,8 +10,11 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 export class WanIconComponent implements OnInit {
 
   @Input() color: string = "#03a9f4";
+  svgPath: string;
 
-  constructor() { }
+  constructor(private constants: ConstantsService) {
+    this.svgPath = this.constants.svgFolder + "/wan.svg";
+  }
 
   ngOnInit(): void {
   }
