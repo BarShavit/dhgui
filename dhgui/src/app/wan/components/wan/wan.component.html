@@ -10,7 +10,23 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content class="card-content">
-        <mat-tab-group [(selectedIndex)]="selectedTab">
+        <div class="select-container" *ngIf="tabsOverflow$ | async">
+            <mat-form-field class="tab-select">
+                <mat-label>הצג</mat-label>
+                <mat-select [(ngModel)]="selectedTab">
+                    <mat-option [value]="0">טופולוגיה</mat-option>
+                    <mat-option [value]="1">כוחות משימה</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div [ngSwitch]="selectedTab" class="select-content">
+                <app-topology *ngSwitchCase="0" class="full-size"></app-topology>
+                <app-task-forces *ngSwitchCase="1" class="full-size"></app-task-forces>
+            </div>
+        </div>
+
+        <!-- If tabs don't overflow, we will use them. Else we will use select-->
+        <mat-tab-group #tabs [(selectedIndex)]="selectedTab" *ngIf="!(tabsOverflow$ | async)">
             <mat-tab>
                 <ng-template mat-tab-label>
                     <mat-icon>network_cell</mat-icon>
