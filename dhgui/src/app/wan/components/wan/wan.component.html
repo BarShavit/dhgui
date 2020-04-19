@@ -19,14 +19,14 @@
                 </mat-select>
             </mat-form-field>
 
-            <div [ngSwitch]="selectedTab" class="select-content">
+            <div [ngSwitch]="selectedTab" class="select-content overflow">
                 <app-topology *ngSwitchCase="0" class="full-size"></app-topology>
                 <app-task-forces *ngSwitchCase="1" class="full-size"></app-task-forces>
             </div>
         </div>
 
         <!-- If tabs don't overflow, we will use them. Else we will use select-->
-        <mat-tab-group #tabs [(selectedIndex)]="selectedTab" *ngIf="!(tabsOverflow$ | async)">
+        <mat-tab-group #tabs [(selectedIndex)]="selectedTab" *ngIf="!(tabsOverflow$ | async)" mat-stretch-tabs>
             <mat-tab>
                 <ng-template mat-tab-label>
                     <mat-icon>network_cell</mat-icon>

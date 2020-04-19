@@ -1,7 +1,7 @@
 .force-container {
     overflow: auto;
     min-height: calc(100% - 64px);
-    height: calc(100% - 64px);
+    max-height: 49vh;
 }
 
 .force {
