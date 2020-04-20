@@ -1,7 +1,7 @@
 <mat-card class="main-card">
     <mat-card-header class="header">
         <mat-card-title class="single-title-card">ערוצי בא"ג</mat-card-title>
-        <app-wl-icon mat-card-avatar class="wl-logo"></app-wl-icon>
+        <app-wl-icon mat-card-avatar></app-wl-icon>
     </mat-card-header>
     <mat-card-content class="content">
         <div *ngFor="let channel of wlService.channels$ | async ; trackBy:trackByFunc" class="channel-container">
