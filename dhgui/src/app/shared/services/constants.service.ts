@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { SocketIoConfig } from 'ngx-socket-io';
+
+export const socketIOconfig: SocketIoConfig = { url: 'http://localhost:8080', options: { reconnect: true } };
 
 @Injectable({
   providedIn: 'root'

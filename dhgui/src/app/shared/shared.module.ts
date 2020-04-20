@@ -7,6 +7,9 @@ import { MaterialModule } from '../material/material.module';
 import { WarningComponent } from './components/warning/warning.component';
 import { EditLogicalChannelComponent } from './components/add-logical-channel/edit-logical-channel.component';
 import { InlineSVGModule } from 'ng-inline-svg';
+import { SocketIoModule } from 'ngx-socket-io';
+import { config } from 'process';
+import { socketIOconfig } from './services/constants.service';
 
 @NgModule({
   declarations: [LogicalChannelsViewComponent, PopupTitleComponent, WarningComponent, EditLogicalChannelComponent],
@@ -14,7 +17,8 @@ import { InlineSVGModule } from 'ng-inline-svg';
     CommonModule,
     HttpClientModule,
     MaterialModule,
-    InlineSVGModule.forRoot()
+    InlineSVGModule.forRoot(),
+    SocketIoModule.forRoot(socketIOconfig)
   ],
   exports: [
     LogicalChannelsViewComponent,
