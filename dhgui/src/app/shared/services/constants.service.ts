@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ConstantsService {
   /* SVG */
-  svgFolder = "/assets/svgs";
+  svgFolder = "assets/svgs";
 
   /* SystemInformation */
   systemInfomationAddress = "/assets";
